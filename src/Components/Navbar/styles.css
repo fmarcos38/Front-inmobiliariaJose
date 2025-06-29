@@ -1,0 +1,45 @@
+.navbar {
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    background-color: transparent;
+    transition: background-color 0.3s ease-in-out;
+    background-color: var(--fondo-navbar);
+}
+
+.navbar.scrolled {
+    background-color: var(--fondo-navbar);
+}
+
+.cont-navbar-navA,
+.cont-navbars-byc{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.cont-navbars-byc{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cont-navbar-navB,
+.cont-navbar-navC{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: end;
+    background-color: blueviolet;
+}
+.cont-navbar-navC{
+    background-color: brown;
+}

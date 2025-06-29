@@ -1,0 +1,23 @@
+.cont-navbar-C{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+}
+.ul-navbarInf{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aquamarine;
+}
+.ul-navbarInf > li{
+    list-style: none;
+    font-size: 18px;    
+    color: black;
+}
+.navlink-navbarInf{
+    text-decoration: none;
+    color: black;
+}
