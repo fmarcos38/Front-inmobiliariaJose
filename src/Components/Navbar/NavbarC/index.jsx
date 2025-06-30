@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import './style.css'
 
 function NavbarC() {
@@ -22,24 +23,22 @@ function NavbarC() {
                         Emprendimientos
                     </NavLink>
                 </li>
-                {/* <li data-translate>
-                                <NavLink to='/internacional' className={'navlink-navbarInf'}>
-                                    Internacional
-                                </NavLink>
-                            </li> */}
-                <li data-translate>
-                    <NavLink to='/favoritos' className={'navlink-navbarInf'}>
-                        Favoritos
-                    </NavLink>
-                </li>
                 <li data-translate>
                     <NavLink to='/nosotros' className={'navlink-navbarInf'}>
-                        Nosotros
+                        La empresa
                     </NavLink>
                 </li>
                 <li data-translate>
                     <NavLink to='/contacto' className={'navlink-navbarInf'}>
                         Contacto
+                    </NavLink>
+                </li>
+                <li data-translate>
+                    <NavLink to='/favoritos' className={'navlink-navbarInf'}>
+                        <div className='cont-fav-contadorFav'>
+                            <FavoriteIcon />
+                            <p className='contadorFav'>{2}</p>
+                        </div>
                     </NavLink>
                 </li>
             </ul>

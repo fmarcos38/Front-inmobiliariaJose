@@ -3,14 +3,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: blue;
 }
 .ul-navbarInf{
     width: 90%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: aquamarine;
 }
 .ul-navbarInf > li{
     list-style: none;
@@ -20,4 +18,16 @@
 .navlink-navbarInf{
     text-decoration: none;
     color: black;
+}
+
+.cont-fav-contadorFav{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contadorFav{
+    position: relative;
+    top: -15px;
+    font-size: 13px;
 }

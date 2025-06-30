@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-/* import NavbarSup from '../NavbarSup';
-import NavbarInf from '../NavbarInf'; */
-import './styles.css';
 import NavbarA from './NavbarA';
 import NavbarB from './NavbarB';
 import NavbarC from './NavbarC';
+import './styles.css';
+
 
 function Navbar() {
     const [scrolled, setScrolled] = useState(false);

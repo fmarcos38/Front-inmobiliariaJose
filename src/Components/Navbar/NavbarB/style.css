@@ -3,7 +3,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: aqua;
 }
 .cont-navbar-B-items{
     width: 100%;
@@ -17,4 +16,8 @@
 .p-mail{
     margin-right: 23px;
     text-decoration: none;
+}
+.a-email-navSup{
+    text-decoration: none;
+    color: black;
 }

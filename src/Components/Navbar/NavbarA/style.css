@@ -1,18 +1,29 @@
-.cont-navbar-A{
+.cont-navbar-A {
     width: 100%;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: aqua;
 }
-.cont-menu-hambur{
+
+.cont-menu-hambur {
+    display: none;
+}
+
+.cont-logo-navA {
     position: absolute;
-    top: 25px;
-    left: 20px;
-    background-color: aquamarine;
+    left: 50px;
 }
-.cont-logo-navA{}
-.logo-navbarA{
+
+.logo-navbarA {
     height: 3rem;
+}
+
+/* responsive */
+@media screen and (max-width: 600px) {
+    .cont-menu-hambur {
+        position: absolute;
+        top: 25px;
+        left: 20px;
+    }
 }
