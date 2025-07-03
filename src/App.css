@@ -25,6 +25,6 @@
 }
 
 /* quitar barra de scroll horizontal */ /* NO SE xq aparece */
-/* html {
+html {
     overflow-x: hidden;
-} */
+} 

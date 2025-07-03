@@ -1,0 +1,9 @@
+.cont-home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cont-home-propsDestacadas{
+    width: 80%;
+}

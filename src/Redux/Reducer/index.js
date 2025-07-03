@@ -3,11 +3,13 @@ import {
     LOADING,GET_EMPRENDIMIENTO, GET_EMPRENDIMIENTOS,
     RESET_EMPRENDIMIENTO,  RESET_PROPERTY,
     RESET_PROPS, GET_PROPS_MAP,
+    GET_PROPS_DESTACADAS,
 } from "../Actions/actionsType";
 
 const initialState = {
     propiedades: [],
     propsMap: [],
+    propsDestacadas: [],
     totPropiedades: 0,
     propiedad: {},
     tipoOp: [],
@@ -31,6 +33,13 @@ export default function rootReducer (state = initialState, action) {
                 loading: false,
                 propiedades: action.payload.propiedades,
                 totPropiedades: action.payload.total,
+            };
+        case GET_PROPS_DESTACADAS:
+            return {
+                ...state,
+                loading: false,
+                propsDestacadas: action.payload.propsDestacadas,
+                /* totPropiedades: action.payload.total, */
             };
         case GET_PROPERTY:
             return{

@@ -1,6 +1,7 @@
 import axios from "axios";
 import {  GET_PROPERTY,  GET_PROPS, IS_OPEN_MODAL_PICTURE, LOADING, RESET_PROPS, GET_PROPS_MAP,
-    RESET_PROPERTY, GET_EMPRENDIMIENTOS, GET_EMPRENDIMIENTO, RESET_EMPRENDIMIENTO, 
+    RESET_PROPERTY, GET_EMPRENDIMIENTOS, GET_EMPRENDIMIENTO, RESET_EMPRENDIMIENTO,
+    GET_PROPS_DESTACADAS, 
 } from "./actionsType";
 import { actual } from "../../url";
 
@@ -47,6 +48,21 @@ export const getProps = (limit, offset, operacion, tipoPropiedad, precioMin, pre
 
             const resp = await axios.get(`${actual}/propiedades/propiedades${queryParams}`); 
             dispatch({ type: GET_PROPS, payload: resp.data });
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+
+//trae props destacadas
+export const getPropsDestacadas = () => {
+    return async function(dispatch) {
+        dispatch({type: LOADING});
+
+        try {
+            //construimos los parametros dinamicamente            
+            const resp = await axios.get(`${actual}/propiedades/propsDestacadas`); 
+            dispatch({ type: GET_PROPS_DESTACADAS, payload: resp.data });
         } catch (error) {
             console.log(error);
         }

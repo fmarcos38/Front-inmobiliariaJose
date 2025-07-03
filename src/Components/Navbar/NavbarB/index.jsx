@@ -10,8 +10,8 @@ function NavbarB() {
     return (
         <div className='cont-navbar-B'>
             <div className='cont-navbar-B-items'>
-                <WhatsAppIcon sx={{ fontSize: 15, color: 'black', marginRight: '5px' }} />
-                <InstagramIcon sx={{ fontSize: 15, color: 'black' }} />
+                <WhatsAppIcon sx={{ fontSize: 18, color: 'black', marginRight: '5px' }} />
+                <InstagramIcon sx={{ fontSize: 18, color: 'black' }} />
             </div>
             <div className='cont-navbar-B-items'>
                 <LocalPhoneIcon sx={{ fontSize: 15, color: 'black', marginLeft: '10px', marginRight: '5px' }} />
