@@ -7,7 +7,7 @@ import IconoDormitorio from '../../Images/Iconos/IconoDormitorios';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import './styles.css';
 
-function CardEmprendimiento({ id, imagenes, direccionF, locacion, tituloPublicacion, tipo }) {
+function CardEmprendimiento({ id, imagenes, direccionF, locacion, tituloPublicacion, tipo, descripcion }) {
     const [showDetail, setShowDetail] = useState(false);
 
     return (
@@ -26,18 +26,22 @@ function CardEmprendimiento({ id, imagenes, direccionF, locacion, tituloPublicac
 
             {/* Info a la derecha */}
             <div className="card-horizontal-content">
-                <h2 className="card-horizontal-title" data-translate>Emprendimiento</h2>
-                <h3 className="card-horizontal-subtitulo">{tituloPublicacion}</h3>
-
-                <div className="card-horizontal-ubicacion">
-                    <img src={IconoUbicacion} alt="ubicación" />
-                    <span>{direccionF}</span>
+                <div className='cont-info-1-card-horizontal'>
+                    <h3 className="card-horizontal-subtitulo">{tituloPublicacion}</h3>
                 </div>
 
-                <p className="card-horizontal-locacion">{locacion}</p>
+                <div className='cont-info-2-card-horizontal'>
+                    <div className="card-horizontal-ubicacion">
+                        <img src={IconoUbicacion} alt="ubicación" />
+                        <span>{direccionF}</span>
+                    </div>
+
+                    <p className="card-horizontal-locacion">{locacion}</p>
+                </div>
+                
                 {/* descripción */}
-                <div className="card-horizontal-icons">
-                    
+                <div className="cont-info-3-card-horizontal">
+                    <p className='p-card-horizontal-descrip'>{descripcion}</p>
                 </div>
             </div>
         </div>
