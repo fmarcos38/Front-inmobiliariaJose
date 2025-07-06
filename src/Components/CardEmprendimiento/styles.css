@@ -1,5 +1,5 @@
 .card-horizontal {
-    height: 350px;
+    height: 300px;
     display: flex;
     flex-direction: row;
     border: 1px solid #ddd;
@@ -34,14 +34,19 @@
 }
 
 .detail-hover {
-    position: absolute;
-    bottom: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;    
+    background: rgba(0, 0, 0, 0.7);
+}
+.detail-hover p {
     text-align: center;
-    padding: 0.5rem;
     color: white;
-    font-weight: bold;
+    font-size: 40px;
 }
 
 .card-horizontal-content {
@@ -113,7 +118,7 @@
 
 .p-card-horizontal-descrip {
     display: -webkit-box;
-    -webkit-line-clamp: 8;
+    -webkit-line-clamp: 6;
     /* Cantidad de líneas permitidas */
     -webkit-box-orient: vertical;
     overflow: hidden;

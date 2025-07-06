@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { capitalizar, formatMoney } from '../../Helps';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-//import Favorito from '../Favoritos';
-//import MeGusta from '../BotonMeGusta';
+import Favorito from '../Botones/Favoritos';
+import MeGusta from '../Botones/BotonMeGusta';
 import HomeIcon from '@mui/icons-material/Home';
 import TagIcon from '@mui/icons-material/Tag';
 import HotelIcon from '@mui/icons-material/Hotel';
@@ -38,7 +38,7 @@ function Card({ id, direccionF, cantCocheras, operacion, imagenes, tituloPublica
                 </div>
             </NavLink>
 
-            {/* titulo */}
+            {/* Operacion */}
             <div className='cont-operacion'>
                 {operacion.length > 1 ? (
                     <h2 className='titulo-card' data-translate>Venta/Alq</h2>
@@ -49,7 +49,7 @@ function Card({ id, direccionF, cantCocheras, operacion, imagenes, tituloPublica
                 ) : null}
             </div>
 
-            {/* info 1 */}
+            {/* Titulo y direccion */}
             <div className='card-info1'>
                 <div className='cont-titulo-publicacion-card'>
                     <div className='cont-titulo-card'>
@@ -65,31 +65,31 @@ function Card({ id, direccionF, cantCocheras, operacion, imagenes, tituloPublica
                 <div className='cont-precio-fav'>
                     <div className='cont-precio'>
                         {vista === "Venta" && venta && (
-                            <p className='precio'>
+                            <p className='precio-card'>
                                 {venta.precios[0]?.moneda} {formatMoney(venta.precios[0]?.precio)}
                             </p>
                         )}
 
                         {vista === "Alquiler" && alquiler && (
-                            <p className='precio'>
+                            <p className='precio-card'>
                                 {alquiler.precios[0]?.moneda} {formatMoney(alquiler.precios[0]?.precio)}
                             </p>
                         )}
 
                         {vista === "ambas" && venta && alquiler && (
-                            <p className='precio'>
+                            <p className='precio-card'>
                                 {venta.precios[0]?.moneda} {formatMoney(venta.precios[0]?.precio)} / {alquiler.precios[0]?.moneda} {formatMoney(alquiler.precios[0]?.precio)}
                             </p>
                         )}
 
                         {vista === "ambas" && venta && !alquiler && (
-                            <p className='precio'>
+                            <p className='precio-card'>
                                 {venta.precios[0]?.moneda} {formatMoney(venta.precios[0]?.precio)}
                             </p>
                         )}
 
                         {vista === "ambas" && alquiler && !venta && (
-                            <p className='precio'>
+                            <p className='precio-card'>
                                 {alquiler.precios[0]?.moneda} {formatMoney(alquiler.precios[0]?.precio)}
                             </p>
                         )}
@@ -97,7 +97,7 @@ function Card({ id, direccionF, cantCocheras, operacion, imagenes, tituloPublica
 
                     {/* favorito */}
                     <div className='cont-fav'>
-                        {/* <MeGusta id={id}/>
+                        <MeGusta id={id}/>
                         <Favorito 
                             id={id}
                             direccionF={direccionF}
@@ -109,7 +109,7 @@ function Card({ id, direccionF, cantCocheras, operacion, imagenes, tituloPublica
                             dormitorios={dormitorios}
                             unidadMedida={unidadMedida}
                             tipo={tipo}
-                        /> */}
+                        />
                     </div>
                 </div>
             </div>

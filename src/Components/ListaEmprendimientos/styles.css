@@ -4,3 +4,21 @@
     gap: 1.5rem;
     padding: 1rem;
 }
+.cont-titulo-emp{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.cont-h1-listaEmp{
+    width: 50%;
+    display: flex;
+    justify-content: star;
+    align-items: center;
+}
+.cont-btn-verTodas-listaEmp{
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}

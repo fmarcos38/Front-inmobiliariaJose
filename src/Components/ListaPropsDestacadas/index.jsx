@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
 import './styles.css';
 import Card from '../Card';
+import BotonVerTodas from '../Botones/BotonVerTodas';
 
-function ListaPropsDestacadas({ allPropsDestacadas }) {
+function ListaPropsDestacadas({ allPropsDestacadas, vista }) {
     const scrollRef = useRef(null);
 
     const scroll = (direction) => {
@@ -18,15 +19,23 @@ function ListaPropsDestacadas({ allPropsDestacadas }) {
 
     return (
         <div className="cont-lista-props-destacadas">
-            <h2 className="titulo-props-destacadas" data-translate>Propiedades destacadas</h2>
-
+            <div className="cont-titulos">
+                <div className="linea-destacadas "></div>
+                <h2 className="titulo-props-destacadas" data-translate>Propiedades destacadas</h2>
+                <div className="linea-destacadas "></div>
+            </div>
+            {/* btn ver todas */}
+            <div className='cont-btn-verTodas'>
+                <BotonVerTodas />
+            </div>
+            {/* carrusel */}
             <div className="carrusel-botones">
                 <button className="boton-carrusel" onClick={() => scroll('left')}>&#10094;</button>
 
                 <div className="carrusel-container" ref={scrollRef}>
                     {allPropsDestacadas?.map((prop) => (
                         <div className="carrusel-item" key={prop.id}>
-                            <Card {...prop} />
+                            <Card {...prop} vista={vista} />
                         </div>
                     ))}
                 </div>

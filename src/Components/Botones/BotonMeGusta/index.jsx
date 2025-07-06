@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import './styles.css';
 import { useDispatch } from 'react-redux';
-import { restaMeGusta, sumoMeGusta } from '../../Redux/Actions';
+import { restaMeGusta, sumoMeGusta } from '../../../Redux/Actions';
 
 function MeGusta({ id }) { 
 

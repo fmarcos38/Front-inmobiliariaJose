@@ -57,7 +57,7 @@ function Home() {
                 <LandigA />
                 {/* Destacadas */}
                 <div className='cont-home-propsDestacadas'>
-                    <ListaPropsDestacadas allPropsDestacadas={allPropsDestacadas} />
+                    <ListaPropsDestacadas allPropsDestacadas={allPropsDestacadas} vista={"ambas"} id='listaProps'/>
                 </div>
 
                 {/* Emprendimientos */}
