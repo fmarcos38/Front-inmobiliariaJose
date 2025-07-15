@@ -37,7 +37,7 @@ function CardEmprendimiento({ id, imagenes, direccionF, locacion, tituloPublicac
                 
                 {/* descripción */}
                 <div className="cont-info-3-card-horizontal">
-                    <p className='p-card-horizontal-descrip'>{descripcion}</p>
+                    <p className='p-card-horizontal-descrip-emp'>{descripcion}</p>
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import './estilos.css';
 
-const Favorito = ({ id,direccionF, cantCocheras, operacion, imagenes, tituloPublicacion, ambientes, dormitorios, unidadMedida, tipo }) => {
+const Favorito = ({ id, direccionF, cantCocheras, operacion, imagenes, tituloPublicacion, ambientes, dormitorios, unidadMedida, tipo }) => {
 
     const [isFavorite, setIsFavorite] = useState(false); 
 

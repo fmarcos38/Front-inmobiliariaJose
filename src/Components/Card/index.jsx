@@ -21,7 +21,7 @@ function Card({ id, direccionF, cantCocheras, operacion, imagenes, tituloPublica
     return (
         <div className='contCardHome'>
             {/* img + animacion + abre detalle */}
-            <NavLink to={`/detalle/${id}`} className='navLink-car'>
+            <NavLink to={`/detalle/${id}`} className='navLink-card'>
                 <div
                     onMouseEnter={() => setShowDetail(true)}
                     onMouseLeave={() => setShowDetail(false)}

@@ -4,9 +4,10 @@ import { getProps, getPropsDestacadas, getPropsMap, getEmprendimientos } from '.
 import Loading from '../../Components/Loading';
 import LandigA from '../../Components/LandingA';
 import ListaPropiedades from '../../Components/ListaPropiedades'
-import './styles.css';
 import ListaPropsDestacadas from '../../Components/ListaPropsDestacadas';
 import ListaEmprendimientos from '../../Components/ListaEmprendimientos';
+import Paginacion from '../../Components/Paginacion';
+import './styles.css';
 
 function Home() {
 
@@ -57,12 +58,29 @@ function Home() {
                 <LandigA />
                 {/* Destacadas */}
                 <div className='cont-home-propsDestacadas'>
-                    <ListaPropsDestacadas allPropsDestacadas={allPropsDestacadas} vista={"ambas"} id='listaProps'/>
+                    <ListaPropsDestacadas allPropsDestacadas={allPropsDestacadas} vista={"ambas"} id='listaProps' />
                 </div>
 
                 {/* Emprendimientos */}
-                <div className='cont-home-propsDestacadas'>
+                <div className='cont-home-Emprendimientos'>
                     <ListaEmprendimientos emprendimientos={allEmp} />
+                </div>
+
+                {/* Lista props */}
+                <div className='cont-home-propsDestacadas'>
+                    <ListaPropiedades allProps={allProps} vista={"ambas"} id='listaProps' />
+                    {/* Paginación */}
+                    {
+                        allProps.length > 0 && (
+                            <Paginacion
+                                allProps={allProps}
+                                currentPage={currentPage}
+                                onPageChange={setCurrentPage}
+                                totalPropiedades={totalPropiedades}
+                                propiedadesPorPagina={propiedadesPorPagina}
+                            />
+                        )
+                    }
                 </div>
             </div>
         )

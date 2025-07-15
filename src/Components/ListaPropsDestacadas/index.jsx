@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
-import './styles.css';
 import Card from '../Card';
 import BotonVerTodas from '../Botones/BotonVerTodas';
+import './styles.css';
 
 function ListaPropsDestacadas({ allPropsDestacadas, vista }) {
     const scrollRef = useRef(null);

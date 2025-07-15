@@ -6,4 +6,12 @@
 }
 .cont-home-propsDestacadas{
     width: 80%;
+    min-height: 100vh;
+}
+.cont-home-Emprendimientos{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(229, 229, 227);
 }

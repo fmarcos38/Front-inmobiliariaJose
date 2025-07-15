@@ -1,4 +1,5 @@
-.lista-emprendimientos {
+.cont-lista-emprendimientos {
+    width: 80%;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
