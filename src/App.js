@@ -17,6 +17,7 @@ import PropsInternacionales from './Pages/PropsInternacionales';
 import DetalleEmp from './Pages/DetalleEmprendimiento';
 import MapaPAge from './Pages/MapaPage'; */
 import './App.css';
+import Footer from './Components/Footer';
 
 
 function App() {
@@ -51,7 +52,7 @@ function App() {
           </main>
 
           <footer>
-            {/* <Footbar /> */}
+            <Footer />
           </footer>
 
         </div>

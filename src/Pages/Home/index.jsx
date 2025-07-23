@@ -8,6 +8,7 @@ import ListaPropsDestacadas from '../../Components/ListaPropsDestacadas';
 import ListaEmprendimientos from '../../Components/ListaEmprendimientos';
 import Paginacion from '../../Components/Paginacion';
 import './styles.css';
+import Institucional from '../../Components/Institucional';
 
 function Home() {
 
@@ -82,6 +83,9 @@ function Home() {
                         )
                     }
                 </div>
+
+                {/* Institucional */}
+                <Institucional />
             </div>
         )
     )
