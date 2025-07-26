@@ -18,6 +18,7 @@ import DetalleEmp from './Pages/DetalleEmprendimiento';
 import MapaPAge from './Pages/MapaPage'; */
 import './App.css';
 import Footer from './Components/Footer';
+import LaEmpresaPage from './Pages/LaEmpresa';
 
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
               {/* <Route path='/alquiler' element={<PropsAlquiler />} /> */}
               {/* <Route path='/emprendimientos' element={<Emprendimientos />} /> */}
               {/* <Route path='/internacional' element={<PropsInternacionales />} /> */}
-              {/* <Route path='/nosotros' element={<NosotrosPage />} /> */}
+              <Route path='/nosotros' element={<LaEmpresaPage />} />
               {/* <Route path='/contacto' element={<Contactanos />} /> */}
               {/* <Route path='/detalle/:id' element={<DetalleProp />} /> */}
               {/* <Route path='/detalleEmp/:id' element={<DetalleEmp />} /> */}

@@ -1,0 +1,42 @@
+.cont-principal-cardP {
+    width: 250px;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.cont-img-persona {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.img-persona-card {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    /* HACE LA IMAGEN REDONDA */
+    border: 2px solid #ccc;
+}
+
+.cont-inf-persona {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.nombre-persona {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.texto-persona {
+    font-size: 0.95rem;
+    color: #666;
+    margin: 0;
+}
