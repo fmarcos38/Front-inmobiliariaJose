@@ -1,6 +1,6 @@
 import React from 'react';
-//import './styles.css';
-import './stylesRectangular.css';
+import './styles.css';
+//import './stylesRectangular.css';
 
 function CardPersona({imgPersona, nombre, texto}) {
     console.log("imgPersona :", imgPersona)

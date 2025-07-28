@@ -39,7 +39,7 @@ function Card({ id, direccionF, cantCocheras, operacion, imagenes, tituloPublica
             </NavLink>
 
             {/* Operacion */}
-            <div className='cont-operacion'>
+            <div className='cont-operacion-card'>
                 {operacion.length > 1 ? (
                     <h2 className='titulo-card' data-translate>Venta/Alq</h2>
                 ) : operacion[0]?.operacion === 'Venta' ? (

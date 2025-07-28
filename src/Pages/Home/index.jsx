@@ -7,8 +7,8 @@ import ListaPropiedades from '../../Components/ListaPropiedades'
 import ListaPropsDestacadas from '../../Components/ListaPropsDestacadas';
 import ListaEmprendimientos from '../../Components/ListaEmprendimientos';
 import Paginacion from '../../Components/Paginacion';
-import './styles.css';
 import Institucional from '../../Components/Institucional';
+import './styles.css';
 
 function Home() {
 

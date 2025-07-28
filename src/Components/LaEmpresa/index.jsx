@@ -1,19 +1,20 @@
 import React from 'react';
+import { ezequiel } from '../../Helps/ArrayEquipo';
 import Video from '../../Images/videoLand.mp4';
 import ListaEquipo from '../ListaEquipo';
-import './styles.css';
 import CardPersona from '../CardPersona';
-import { ezequiel } from '../../Helps/ArrayEquipo';
+import './styles.css';
 
 function LaEmpresa() {
     const eze = ezequiel;
 
     return (
         <div className='cont-principal-laEmp'>
+            {/* oscurece el video */}
+            <div className='overlay-video-laEmp'></div>
             <div className='cont-secundario-laEmp'>
                 {/* video con overlay */}
                 <div className='cont-video-laEmp'>
-                    <div className='overlay-video'></div>
                     <video className='cont-video' autoPlay muted loop>
                         <source src={Video} type="video/mp4" />
                         Tu navegador no soporta la etiqueta de video.
@@ -22,15 +23,17 @@ function LaEmpresa() {
 
                 {/* textos sobre el video */}
                 <div className='cont-texto-LaEmp'>
-                    <h1 className='texto-h1-LaEmp'>Somos una empresa</h1>
+                    <h1 className='texto-h1-LaEmp'>Ezequiel Jose Estudio Inmobiliario</h1>
                     <h2 className='texto-h2-LaEmp'>Que hacemos foco en lo que el cliente nos pide</h2>
                     <h3 className='texto-h3-LaEmp'>Y a partir de ahí nos contactamos con MARCOS</h3>
                     <h3 className='texto-h3-LaEmp'>de Ortiz Lizmar propiedades y él nos consigue todo!!</h3>
                 </div>
 
                 {/* título decorado */}
-                <div className='cont-titulo-LaEmp'>
-                    <h1 className='titulo-LaEmp'>Nuestro Staff</h1>
+                <div className="cont-titulos">
+                    <div className="linea-destacadas "></div>
+                        <h2 className="titulo-props-destacadas" >Nuestro Staff</h2>
+                    <div className="linea-destacadas "></div>
                 </div>
 
                 {/* primera card separada */}

@@ -34,15 +34,17 @@ function Navbar() {
 
     return (
         <nav className={navbarClass}>
-            <div className='cont-navbar-navA'>
-                <NavbarA />
-            </div>
-            <div className='cont-navbars-byc'>
-                <div className='cont-navbar-navB'>
-                    <NavbarB />
+            <div className='sub-cont-navbar'>
+                <div className='cont-navbar-navA'>
+                    <NavbarA />
                 </div>
-                <div className='cont-navbar-navC'>
-                    <NavbarC />
+                <div className='cont-navbars-byc'>
+                    <div className='cont-navbar-navB'>
+                        <NavbarB />
+                    </div>
+                    <div className='cont-navbar-navC'>
+                        <NavbarC />
+                    </div>
                 </div>
             </div>
         </nav>

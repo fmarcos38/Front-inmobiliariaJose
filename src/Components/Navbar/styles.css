@@ -12,7 +12,11 @@
     transition: background-color 0.3s ease-in-out;
     background-color: transparent;
 }
-
+.sub-cont-navbar{
+    width: 90%;
+    height: 80px;
+    display: flex;
+}
 .navbar.scrolled {
     background-color: var(--fondo-navbar);
 }
