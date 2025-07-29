@@ -21,7 +21,7 @@ function CardPropsRectangular({
 
     return (
         <div className="card-horizontal propRect">
-            {/* Imagen con hover */}
+            {/* Imagen con hover  y operacion*/}
             <NavLink to={`/detalleEmp/${id}`} className="card-horizontal-img-container">
                 <div
                     onMouseEnter={() => setShowDetail(true)}
