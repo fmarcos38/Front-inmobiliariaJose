@@ -24,7 +24,7 @@ function LaEmpresa() {
                 {/* textos sobre el video */}
                 <div className='cont-texto-LaEmp'>
                     <h1 className='texto-h1-LaEmp'>Ezequiel Jose Estudio Inmobiliario</h1>
-                    <h2 className='texto-h2-LaEmp'>Que hacemos foco en lo que el cliente nos pide</h2>
+                    <h2 className='texto-h2-LaEmp'>Hacemos foco en lo que el cliente nos pide</h2>
                     <h3 className='texto-h3-LaEmp'>Y a partir de ahí nos contactamos con MARCOS</h3>
                     <h3 className='texto-h3-LaEmp'>de Ortiz Lizmar propiedades y él nos consigue todo!!</h3>
                 </div>

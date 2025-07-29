@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { capitalizar, formatMoney } from '../../Helps';
 import Favorito from '../Botones/Favoritos';
-import IconoUbicacion from '../../Images/Iconos/iconoUbicacion.png';
+import RoomIcon from '@mui/icons-material/Room';
 import HomeIcon from '@mui/icons-material/Home';
 import TagIcon from '@mui/icons-material/Tag';
 import HotelIcon from '@mui/icons-material/Hotel';
@@ -29,7 +29,17 @@ function CardPropsRectangular({
                     className="img-wrapper"
                 >
                     <img src={imagenes[0].original} alt="propiedad" className="card-horizontal-img" />
-                    {showDetail && <div className="detail-hover"><p data-translate>Detalle</p></div>}
+                    {showDetail && <div className="detail-hover"><p>Detalle</p></div>}
+                    {/* operacion */}
+                    <div className='cont-operacion'>
+                        {operacion.length > 1 ? (
+                            <h2 className='titulo-card' >Venta/Alq</h2>
+                        ) : operacion[0]?.operacion === 'Venta' ? (
+                            <h2 className='titulo-card' >Venta</h2>
+                        ) : operacion[0]?.operacion === 'Alquiler' ? (
+                            <h2 className='titulo-card' >Alquiler</h2>
+                        ) : null}
+                    </div>
                 </div>
             </NavLink>
 
@@ -37,7 +47,7 @@ function CardPropsRectangular({
             <div className="card-horizontal-content">
                 {/* titulo y Btn-fav */}
                 <div className='cont-propTitulo'>
-                    <h3 className="card-propTitulo">{capitalizar(tituloPublicacion)}</h3>
+                    <h2 className="card-propTitulo">{capitalizar(tituloPublicacion)}</h2>
                     <Favorito
                         id={id}
                         direccionF={direccionF}
@@ -54,16 +64,6 @@ function CardPropsRectangular({
 
                 {/* precio y direcciòn*/}
                 <div className='cont-info-2-card-props'>
-                    <div className='cont-operacion'>
-                        {operacion.length > 1 ? (
-                            <h2 className='titulo-card' data-translate>Venta/Alq</h2>
-                        ) : operacion[0]?.operacion === 'Venta' ? (
-                            <h2 className='titulo-card' data-translate>Venta</h2>
-                        ) : operacion[0]?.operacion === 'Alquiler' ? (
-                            <h2 className='titulo-card' data-translate>Alquiler</h2>
-                        ) : null}
-                    </div>
-                    
                     <div className='cont-preciocard-prop'>
                         {vista === "Venta" && venta && (
                             <p className='precio'>
@@ -96,11 +96,8 @@ function CardPropsRectangular({
                         )}
                     </div>
                     <div className='cont-card-prop-deirecc'>
-                        <div className="card-horizontal-ubicacion">
-                            <img src={IconoUbicacion} alt="ubicación" />
-                            <span>{direccionF}</span>
-                        </div>
-                        <p className="card-prop-ubicacion"> - {ubicacion.barrio}</p>
+                        <RoomIcon />
+                        <span>{direccionF} - {ubicacion.barrio}</span>
                     </div>
                 </div>
 

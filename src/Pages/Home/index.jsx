@@ -8,6 +8,8 @@ import ListaPropsDestacadas from '../../Components/ListaPropsDestacadas';
 import ListaEmprendimientos from '../../Components/ListaEmprendimientos';
 import Paginacion from '../../Components/Paginacion';
 import Institucional from '../../Components/Institucional';
+import MapaPropiedades from '../../Components/MapProps';
+import BotonVerTodas from '../../Components/Botones/BotonVerTodas';
 import './styles.css';
 
 function Home() {
@@ -25,6 +27,8 @@ function Home() {
     const [precioMin, setPrecioMin] = useState();
     const [precioMax, setPrecioMax] = useState();
     const [destacadas, setDestacadas] = useState(false);
+    const [listaProps, setListaProps] = useState(true);
+    const [vistaMapa, setVistaMapa] = useState(false);
 
     //estados para paginación
     const [currentPage, setCurrentPage] = useState(1);
@@ -33,6 +37,14 @@ function Home() {
     const offset = (currentPage - 1) * limit;
     const dispatch = useDispatch();
 
+    const onClickListaProps = () => {
+        setListaProps(!listaProps);
+        setVistaMapa(!vistaMapa);
+    }
+    const onClickMapaProps = () => {
+        setVistaMapa(!vistaMapa);
+        setListaProps(!listaProps);
+    }
     //efecto para iniciar pag desde scroll 0
     useEffect(() => {
         requestAnimationFrame(() => {
@@ -69,19 +81,40 @@ function Home() {
 
                 {/* Lista props */}
                 <div className='cont-home-propsDestacadas'>
-                    <ListaPropiedades allProps={allProps} vista={"ambas"} id='listaProps' />
-                    {/* Paginación */}
+                    <div className='cont-titulo-emp'>
+                        <div className='cont-h1-listaEmp'>
+                            <h1>Nuestras Propiedades</h1>
+                        </div>
+                        <div className='cont-btn-verTodas-listaEmp'>
+                            <button onClick={()=>{onClickListaProps()}}>Lista</button>
+                            <button onClick={()=>{onClickMapaProps()}}>Mapa</button>
+                        </div>
+                    </div>
                     {
-                        allProps.length > 0 && (
-                            <Paginacion
-                                allProps={allProps}
-                                currentPage={currentPage}
-                                onPageChange={setCurrentPage}
-                                totalPropiedades={totalPropiedades}
-                                propiedadesPorPagina={propiedadesPorPagina}
-                            />
-                        )
+                        listaProps === true && vistaMapa === false &&
+                            <>
+                                <ListaPropiedades allProps={allProps} vista={"ambas"} id='listaProps' />
+                                {/* Paginación */}
+                                {
+                                    allProps.length > 0 && (
+                                        <Paginacion
+                                            allProps={allProps}
+                                            currentPage={currentPage}
+                                            onPageChange={setCurrentPage}
+                                            totalPropiedades={totalPropiedades}
+                                            propiedadesPorPagina={propiedadesPorPagina}
+                                        />
+                                    )
+                                }
+                            </>
                     }
+                    {
+                        listaProps === false && vistaMapa === true &&
+                        <>
+                            <MapaPropiedades propiedades={allPropsMap} />
+                        </>
+                    }
+
                 </div>
 
                 {/* Institucional */}
