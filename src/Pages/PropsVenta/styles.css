@@ -1,8 +1,10 @@
-.cont-lista-emprendimientos {
-    width: 80%;
-    height: auto;
+.cont-page-ventas{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 70px;
+}
+.cont-titulo-filtros-listaProps{
+    width: 80%;
 }

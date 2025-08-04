@@ -6,6 +6,7 @@ import LandigA from '../../Components/LandingA';
 import ListaPropiedades from '../../Components/ListaPropiedades'
 import ListaPropsDestacadas from '../../Components/ListaPropsDestacadas';
 import ListaEmprendimientos from '../../Components/ListaEmprendimientos';
+import FiltrosSelect from '../../Components/FiltrosSelect';
 import Paginacion from '../../Components/Paginacion';
 import Institucional from '../../Components/Institucional';
 import MapaPropiedades from '../../Components/MapProps';
@@ -76,9 +77,37 @@ function Home() {
 
                 {/* Emprendimientos */}
                 <div className='cont-home-Emprendimientos'>
-                    <ListaEmprendimientos emprendimientos={allEmp} />
+                    <div className='cont-titulo-emp'>
+                        <div className='cont-h1-listaEmp'>
+                            <h1>Nuestros Emprendimientos</h1>
+                        </div>
+                        <div className='cont-btn-verTodas-listaEmp'>
+                            <BotonVerTodas />
+                        </div>
+                    </div>
+                    <div className='cont-lista-emp-home'>
+                        <ListaEmprendimientos allEmp={allEmp} />
+                    </div>
                 </div>
 
+                {/* filtros */}
+                <div className='cont-filtros-props'>
+                    <div className='cont-filtros-home'>
+                        <FiltrosSelect
+                            verTipoOperacion='true'
+                            precioMin={precioMin}
+                            precioMax={precioMax}
+                            destacadas={destacadas}
+                            setPrecioMin={setPrecioMin}
+                            setPrecioMax={setPrecioMax}
+                            setCurrentPage={setCurrentPage}
+                            setOperacion={setOperacion}
+                            setTipoPropiedad={setTipoPropiedad}
+                            setAmbientes={setAmbientes}
+                            setDestacadas={setDestacadas}
+                        />
+                    </div>
+                </div>
                 {/* Lista props */}
                 <div className='cont-home-propsDestacadas'>
                     <div className='cont-titulo-emp'>
@@ -86,27 +115,27 @@ function Home() {
                             <h1>Nuestras Propiedades</h1>
                         </div>
                         <div className='cont-btn-verTodas-listaEmp'>
-                            <button onClick={()=>{onClickListaProps()}}>Lista</button>
-                            <button onClick={()=>{onClickMapaProps()}}>Mapa</button>
+                            <button onClick={() => { onClickListaProps() }}>Lista</button>
+                            <button onClick={() => { onClickMapaProps() }}>Mapa</button>
                         </div>
                     </div>
                     {
                         listaProps === true && vistaMapa === false &&
-                            <>
-                                <ListaPropiedades allProps={allProps} vista={"ambas"} id='listaProps' />
-                                {/* Paginación */}
-                                {
-                                    allProps.length > 0 && (
-                                        <Paginacion
-                                            allProps={allProps}
-                                            currentPage={currentPage}
-                                            onPageChange={setCurrentPage}
-                                            totalPropiedades={totalPropiedades}
-                                            propiedadesPorPagina={propiedadesPorPagina}
-                                        />
-                                    )
-                                }
-                            </>
+                        <>
+                            <ListaPropiedades allProps={allProps} vista={"ambas"} id='listaProps' />
+                            {/* Paginación */}
+                            {
+                                allProps.length > 0 && (
+                                    <Paginacion
+                                        allProps={allProps}
+                                        currentPage={currentPage}
+                                        onPageChange={setCurrentPage}
+                                        totalPropiedades={totalPropiedades}
+                                        propiedadesPorPagina={propiedadesPorPagina}
+                                    />
+                                )
+                            }
+                        </>
                     }
                     {
                         listaProps === false && vistaMapa === true &&
