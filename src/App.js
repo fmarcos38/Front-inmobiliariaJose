@@ -12,11 +12,9 @@ import Contactanos from './Pages/Contactanos';
 import FavoritosPage from './Pages/Favoritos';
 import Footer from './Components/Footer';
 import LaEmpresaPage from './Pages/LaEmpresa';
-/* 
-
-
-import NosotrosPage from './Pages/Nosotros';
 import DetalleProp from './Pages/DetallePropiedad';
+/* 
+import NosotrosPage from './Pages/Nosotros';
 import PropsInternacionales from './Pages/PropsInternacionales';
 import DetalleEmp from './Pages/DetalleEmprendimiento';
 import MapaPAge from './Pages/MapaPage'; */
@@ -43,7 +41,7 @@ function App() {
               <Route path='/emprendimientos' element={<Emprendimientos />} />
               <Route path='/nosotros' element={<LaEmpresaPage />} />
               <Route path='/contacto' element={<Contactanos />} />
-              {/* <Route path='/detalle/:id' element={<DetalleProp />} /> */}
+              <Route path='/detalle/:id' element={<DetalleProp />} />
               {/* <Route path='/detalleEmp/:id' element={<DetalleEmp />} /> */}
               <Route path='/favoritos' element={<FavoritosPage />} />
               {/* <Route path='/mapa' element={< MapaPAge/>}/> */} 
