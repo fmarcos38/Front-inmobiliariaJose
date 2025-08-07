@@ -94,7 +94,7 @@ function DetalleProp() {
                                                 onClick={handleClickAtras}
                                                 className='btn-volver'
                                             >
-                                                <ArrowBackIcon sx={{ color: 'white' }} />
+                                                <ArrowBackIcon />
                                             </button>
                                         </div>
                                         {/* Titulo prop */}
@@ -103,28 +103,24 @@ function DetalleProp() {
                                                 {capitalizar(propiedad.tituloPublicacion)}
                                             </p>
                                         </div>
-                                    </div>                                    
+                                    </div>
                                 </div>
 
                                 <div className='cont-btns-direccion'>
                                     {/* dirección */}
                                     <div className='cont-titulo-icono-direcc'>
-                                        <RoomIcon sx={{ color: 'white', marginLeft: '40px' }} />
-                                        <p className='detalle-titulo-direccion' data-translate>
+                                        <RoomIcon sx={{ color: 'grey', marginLeft: '40px' }} />
+                                        <p className='detalle-titulo-direccion'>
                                             {propiedad.direccion}
                                         </p>
                                     </div>
                                     {/* precio */}
                                     <div className='cont-precio-detallee'>
                                         {venta && (
-                                            <div style={{color: 'white', display: 'flex', justifyContent: 'center', alignContent: 'center', marginRight:'10px', fontSize: '18'}}>
-                                                <p style={{ fontSize: '18px' }}>Venta: {venta.precios[0].moneda}{formatMoney(venta.precios[0].precio)}</p>                                                
-                                            </div>
+                                            <p className='precio-detalle-prop'>Venta: {venta.precios[0].moneda}{formatMoney(venta.precios[0].precio)}</p>
                                         )}
                                         {alquiler && (
-                                            <div style={{color: 'white',display: 'flex', justifyContent: 'center', alignContent: 'center', marginRight:'10px', fontSize: '18'}}>
-                                                <p style={{ fontSize: '18px' }}>Alquiler: {alquiler.precios[0].moneda}{formatMoney(alquiler.precios[0].precio)}</p>
-                                            </div>
+                                            <p className='precio-detalle-prop'>Alquiler: {alquiler.precios[0].moneda}{formatMoney(alquiler.precios[0].precio)}</p>
                                         )}
                                     </div>
                                 </div>
@@ -140,12 +136,12 @@ function DetalleProp() {
                                         {
                                             propiedad?.video?.length &&
                                             <button
-                                            onClick={() => contexto.handleIsOpen()}
-                                            className='btn-video'
-                                        >
-                                            <VideocamIcon />
-                                            Ver video
-                                        </button>
+                                                onClick={() => contexto.handleIsOpen()}
+                                                className='btn-video'
+                                            >
+                                                <VideocamIcon />
+                                                Ver video
+                                            </button>
                                         }
                                     </div>
                                     {
@@ -157,56 +153,41 @@ function DetalleProp() {
                                     }
                                 </div>
 
-                                <div className='cont-form-contacto'>
-                                    <FormularioContacto
-                                        tituloPublicacion={propiedad.tituloPublicacion}
-                                        codigoReferencia={propiedad.codigoReferencia}
-                                    />
-                                </div>
-                            </div>
-
-                            {/* caract */}
-                            <div className='cont-descrip'>
-                                <p className='titulo-descrip-prop'>Detalle Propiedad</p>
-                                <div className='col-descrip-fila1'>
-                                    <div className='cont-p-col-1'>
-                                        <p className='p-col-key' data-translate>Ambientes:</p>
-                                        <p className='p-col-value'>{propiedad.ambientes}</p>
-                                    </div>
-                                    <div className='cont-p-col-2'>
-                                        <p className='p-col-key' data-translate>Dormitorios:</p>
-                                        <p className='p-col-value'>{propiedad.dormitorios}</p>
-                                    </div>
-                                    <div className='cont-p-col-3'>
-                                        <p className='p-col-key' data-translate>Baños:</p>
-                                        <p className='p-col-value'>{propiedad.baños}</p>
-                                    </div>
-                                </div>
-
-                                {/* <div className='col-descrip-fila2'>
-                                    
-                                </div> */}
-
-                                <div className='col-descrip-fila3'>
-                                    <div className='cont-p-col-1'>
-                                        <p className='p-col-key' data-translate>Tipo Op:</p>
-                                        {
-                                            propiedad.operacion?.map((o, i) => {
-                                                return (
-                                                    <div key={o.operacion_id}>
-                                                        <p className='p-col-value' data-translate>{propiedad.operacion[i]?.operacion}</p>
-                                                    </div>
-                                                )
-                                            })
-                                        }
-                                    </div>
-                                    <div className='cont-p-col-2'>
-                                        <p className='p-col-key' data-translate>Tipo:</p>
-                                        <p className='p-col-value' data-translate>{propiedad.tipo?.nombre}</p>
-                                    </div>
-                                    <div className='cont-p-col-3'>
-                                        <p className='p-col-key' data-translate>Sup. Total:</p>
-                                        <p className='p-col-value'>{propiedad.supTotal}{propiedad.unidadMedida}</p>
+                                <div className='cont-caract-detalle'>
+                                    <p className='titulo-caract-prop'>Detalle Propiedad</p>
+                                    <div className='cont-caract-prop'>
+                                        <div className='cont-p-caract'>
+                                            <p className='p-col-key' data-translate>Ambientes:</p>
+                                            <p className='p-col-value'>{propiedad.ambientes}</p>
+                                        </div>
+                                        <div className='cont-p-caract'>
+                                            <p className='p-col-key' data-translate>Dormitorios:</p>
+                                            <p className='p-col-value'>{propiedad.dormitorios}</p>
+                                        </div>
+                                        <div className='cont-p-caract'>
+                                            <p className='p-col-key' data-translate>Baños:</p>
+                                            <p className='p-col-value'>{propiedad.baños}</p>
+                                        </div>
+                                        <div className='cont-p-caract'>
+                                            <p className='p-col-key' data-translate>Tipo Op:</p>
+                                            {
+                                                propiedad.operacion?.map((o, i) => {
+                                                    return (
+                                                        <div key={o.operacion_id}>
+                                                            <p className='p-col-value' data-translate>{propiedad.operacion[i]?.operacion} /</p>
+                                                        </div>
+                                                    )
+                                                })
+                                            }
+                                        </div>
+                                        <div className='cont-p-caract'>
+                                            <p className='p-col-key' data-translate>Tipo:</p>
+                                            <p className='p-col-value' data-translate>{propiedad.tipo?.nombre}</p>
+                                        </div>
+                                        <div className='cont-p-caract'>
+                                            <p className='p-col-key' data-translate>Sup. Total:</p>
+                                            <p className='p-col-value'>{propiedad.supTotal}{propiedad.unidadMedida}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
