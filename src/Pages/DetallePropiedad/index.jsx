@@ -6,7 +6,6 @@ import { InmobiliariaContext } from '../../Context';
 import { capitalizar, formatMoney } from '../../Helps';
 import Carrusel from '../../Components/Carrusel';
 import MapProp from '../../Components/MapaProp';
-import FormularioContacto from '../../Components/FormularioContacto';
 import ModalVideo from '../../Components/ModalVideo';
 import RoomIcon from '@mui/icons-material/Room';
 import VideocamIcon from '@mui/icons-material/Videocam';
@@ -82,6 +81,7 @@ function DetalleProp() {
                     </>
                 ) : (
                     <div className='contGralDetalle'>
+                        <div className='cont-fondo-trama'></div> {/* para fondo color o img */}
                         <div className='cont-detail'>
                             {/* datos principales */}
                             <div className='info-1'>
