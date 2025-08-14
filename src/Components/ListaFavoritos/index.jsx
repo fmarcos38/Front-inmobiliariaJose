@@ -3,74 +3,102 @@ import NoHayProps from '../NoHayProps';
 import Card from '../Card';
 import './estilos.css';
 
-const arrayFiltros = [
+const arrayFiltrosTipo = [
     'Depto', 'Casa', 'PH', 'Local',
     'Oficina', 'Cochera', 'Terreno', 'Galpón',
 ];
 
-function ListaFavoritos({ allProps }) {
-    const [filtro, setFiltro] = useState(''); // Estado para saber qué filtro está aplicado
+const arrayFiltrosOperacion = [
+    'Venta', 'Alquiler'
+];
 
-    // Propiedades filtradas:
-    const propsFiltrados = filtro
-        ? allProps.filter(p => p.tipo.nombre === filtro)
-        : allProps; // si no hay filtro, muestro todas
+function ListaFavoritos({ allProps }) {
+    const [filtroTipo, setFiltroTipo] = useState('');
+    const [filtroOperacion, setFiltroOperacion] = useState('');
+
+    // Filtrado con estructura real
+    const propsFiltrados = allProps.filter(p => {
+        const matchTipo = filtroTipo ? p.tipo.nombre === filtroTipo : true;
+        const matchOperacion = filtroOperacion 
+            ? p.operacion?.[0]?.operacion === filtroOperacion 
+            : true;
+        return matchTipo && matchOperacion;
+    });
 
     return (
         <div className='cont-listaProps-fav'>
             <h1 data-translate>Tus propiedades favoritas</h1>
-            {/* Botones de filtros */}
+
+            {/* Filtros por tipo de propiedad */}
             <div className="cont-filtros-fav">
-                {/* btn Todas */}
-                <button onClick={() => setFiltro('')} className={filtro === '' ? 'activo' : ''} data-translate>
+                <button
+                    onClick={() => setFiltroTipo('')}
+                    className={filtroTipo === '' ? 'activo' : ''}
+                    data-translate
+                >
                     Todas
                 </button>
-                {
-                    arrayFiltros.map((tipo) => (
-                        <button
-                            key={tipo}
-                            onClick={() => setFiltro(tipo)}
-                            className={filtro === tipo ? 'activo' : ''}
-                            data-translate
-                        >
-                            {tipo}
-                        </button>
-                    ))
-                }
+                {arrayFiltrosTipo.map((tipo) => (
+                    <button
+                        key={tipo}
+                        onClick={() => setFiltroTipo(tipo)}
+                        className={filtroTipo === tipo ? 'activo' : ''}
+                        data-translate
+                    >
+                        {tipo}
+                    </button>
+                ))}
+            </div>
+
+            {/* Filtros por operación */}
+            <div className="cont-filtros-fav">
+                <button
+                    onClick={() => setFiltroOperacion('')}
+                    className={filtroOperacion === '' ? 'activo' : ''}
+                >
+                    Ambas
+                </button>
+                {arrayFiltrosOperacion.map((op) => (
+                    <button
+                        key={op}
+                        onClick={() => setFiltroOperacion(op)}
+                        className={filtroOperacion === op ? 'activo' : ''}
+                    >
+                        {op}
+                    </button>
+                ))}
             </div>
 
             {/* Lista de propiedades */}
             <div className='cont-card-lista-props-fav'>
-                {
-                    propsFiltrados.length ? (
-                        propsFiltrados.map(p => (
-                            <div className='cont-card-Fav-listaProps' key={p.id}>
-                                <Card
-                                    id={p.id}
-                                    tituloPublicacion={p.tituloPublicacion}
-                                    ubicacion={p.ubicacion}
-                                    operacion={p.operacion}
-                                    moneda={p.moneda}
-                                    precio={p.precio}
-                                    imagenes={p.imagenes}
-                                    cantCocheras={p.cantCocheras}
-                                    ambientes={p.ambientes}
-                                    dormitorios={p.dormitorios}
-                                    tipoPropiedad={p.tipoPropiedad}
-                                    supTotal={p.supTotal}
-                                    supDescubierta={p.supDescubierta}
-                                    supCubierta={p.supCubierta}
-                                    supSemiCub={p.supSemiCub}
-                                    baños={p.baños}
-                                />
-                            </div>
-                        ))
-                    ) : (
-                        <div className='no-props'>
-                            <NoHayProps />
+                {propsFiltrados.length ? (
+                    propsFiltrados.map(p => (
+                        <div className='cont-card-Fav-listaProps' key={p.id}>
+                            <Card
+                                id={p.id}
+                                tituloPublicacion={p.tituloPublicacion}
+                                ubicacion={p.ubicacion}
+                                operacion={p.operacion}
+                                moneda={p.operacion?.[0]?.precios?.[0]?.moneda}
+                                precio={p.operacion?.[0]?.precios?.[0]?.precio}
+                                imagenes={p.imagenes}
+                                cantCocheras={p.cantCocheras}
+                                ambientes={p.ambientes}
+                                dormitorios={p.dormitorios}
+                                tipoPropiedad={p.tipoPropiedad}
+                                supTotal={p.supTotal}
+                                supDescubierta={p.supDescubierta}
+                                supCubierta={p.supCubierta}
+                                supSemiCub={p.supSemiCub}
+                                baños={p.baños}
+                            />
                         </div>
-                    )
-                }
+                    ))
+                ) : (
+                    <div className='no-props'>
+                        <NoHayProps />
+                    </div>
+                )}
             </div>
         </div>
     );

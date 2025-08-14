@@ -13,10 +13,11 @@ import FavoritosPage from './Pages/Favoritos';
 import Footer from './Components/Footer';
 import LaEmpresaPage from './Pages/LaEmpresa';
 import DetalleProp from './Pages/DetallePropiedad';
+import DetalleEmp from './Pages/DetalleEmprendimiento';
 /* 
 import NosotrosPage from './Pages/Nosotros';
 import PropsInternacionales from './Pages/PropsInternacionales';
-import DetalleEmp from './Pages/DetalleEmprendimiento';
+
 import MapaPAge from './Pages/MapaPage'; */
 import './App.css';
 
@@ -42,7 +43,7 @@ function App() {
               <Route path='/nosotros' element={<LaEmpresaPage />} />
               <Route path='/contacto' element={<Contactanos />} />
               <Route path='/detalle/:id' element={<DetalleProp />} />
-              {/* <Route path='/detalleEmp/:id' element={<DetalleEmp />} /> */}
+              <Route path='/detalleEmp/:id' element={<DetalleEmp />} />
               <Route path='/favoritos' element={<FavoritosPage />} />
               {/* <Route path='/mapa' element={< MapaPAge/>}/> */} 
               <Route path='*' element={<Home />} />

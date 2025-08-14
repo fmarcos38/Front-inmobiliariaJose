@@ -76,6 +76,7 @@ function DetalleEmp(){
                     </>
                 ) : (
                     <div className='contGralDetalle'>
+                        <div className='cont-fondo-trama'></div> {/* para fondo color o img */}
                         <div className='cont-detail'>
                             {/* datos principales */}
                             <div className='info-1'>
@@ -88,7 +89,7 @@ function DetalleEmp(){
                                                 onClick={handleClickAtras}
                                                 className='btn-volver'
                                             >
-                                                <ArrowBackIcon sx={{ color: 'white' }} />
+                                                <ArrowBackIcon />
                                             </button>
                                         </div>
                                         {/* Titulo prop */}
@@ -97,15 +98,15 @@ function DetalleEmp(){
                                                 {capitalizar(emprendimiento.tituloPublicacion)}
                                             </p>
                                         </div>
-                                    </div>                                    
+                                    </div>
                                 </div>
 
                                 <div className='cont-btns-direccion'>
                                     {/* dirección */}
                                     <div className='cont-titulo-icono-direcc'>
-                                        <RoomIcon sx={{ color: 'white', marginLeft: '40px' }} />
-                                        <p className='detalle-titulo-direccion' data-translate>
-                                            {emprendimiento.direccion}
+                                        <RoomIcon sx={{ color: 'grey', marginLeft: '40px' }} />
+                                        <p className='detalle-titulo-direccion'>
+                                            {emprendimiento.direccionF}
                                         </p>
                                     </div>
                                 </div>
@@ -121,12 +122,12 @@ function DetalleEmp(){
                                         {
                                             emprendimiento?.video?.length &&
                                             <button
-                                            onClick={() => contexto.handleIsOpen()}
-                                            className='btn-video'
-                                        >
-                                            <VideocamIcon />
-                                            Ver video
-                                        </button>
+                                                onClick={() => contexto.handleIsOpen()}
+                                                className='btn-video'
+                                            >
+                                                <VideocamIcon />
+                                                Ver video
+                                            </button>
                                         }
                                     </div>
                                     {
@@ -138,11 +139,42 @@ function DetalleEmp(){
                                     }
                                 </div>
 
-                                <div className='cont-form-contacto'>
-                                    <FormularioContacto
-                                        tituloPublicacion={emprendimiento.tituloPublicacion}
-                                        codigoReferencia={emprendimiento.codigoReferencia}
-                                    />
+                                <div className='cont-caract-detalle'>
+                                    <p className='titulo-caract-prop'>Detalle Propiedad</p>
+                                    {/* <div className='cont-caract-prop'>
+                                        <div className='cont-p-caract'>
+                                            <p className='p-col-key' data-translate>Ambientes:</p>
+                                            <p className='p-col-value'>{propiedad.ambientes}</p>
+                                        </div>
+                                        <div className='cont-p-caract'>
+                                            <p className='p-col-key' data-translate>Dormitorios:</p>
+                                            <p className='p-col-value'>{propiedad.dormitorios}</p>
+                                        </div>
+                                        <div className='cont-p-caract'>
+                                            <p className='p-col-key' data-translate>Baños:</p>
+                                            <p className='p-col-value'>{propiedad.baños}</p>
+                                        </div>
+                                        <div className='cont-p-caract'>
+                                            <p className='p-col-key' data-translate>Tipo Op:</p>
+                                            {
+                                                propiedad.operacion?.map((o, i) => {
+                                                    return (
+                                                        <div key={o.operacion_id}>
+                                                            <p className='p-col-value' data-translate>{propiedad.operacion[i]?.operacion} /</p>
+                                                        </div>
+                                                    )
+                                                })
+                                            }
+                                        </div>
+                                        <div className='cont-p-caract'>
+                                            <p className='p-col-key' data-translate>Tipo:</p>
+                                            <p className='p-col-value' data-translate>{propiedad.tipo?.nombre}</p>
+                                        </div>
+                                        <div className='cont-p-caract'>
+                                            <p className='p-col-key' data-translate>Sup. Total:</p>
+                                            <p className='p-col-value'>{propiedad.supTotal}{propiedad.unidadMedida}</p>
+                                        </div>
+                                    </div> */}
                                 </div>
                             </div>
 
