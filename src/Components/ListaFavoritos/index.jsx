@@ -27,7 +27,11 @@ function ListaFavoritos({ allProps }) {
 
     return (
         <div className='cont-listaProps-fav'>
-            <h1 data-translate>Tus propiedades favoritas</h1>
+            <div className="cont-titulos">
+                <div className="linea-destacadas "></div>
+                <h2 className="titulo-props-destacadas">Tus propiedades favoritas</h2>
+                <div className="linea-destacadas "></div>
+            </div>
 
             {/* Filtros por tipo de propiedad */}
             <div className="cont-filtros-fav">

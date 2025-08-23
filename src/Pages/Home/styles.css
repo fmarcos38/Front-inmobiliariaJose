@@ -39,3 +39,10 @@
     display: flex;
     justify-content: center;
 }
+
+/* responsive */
+@media screen and (max-width: 600px) {
+    .cont-home{
+        display: none;
+    }
+}

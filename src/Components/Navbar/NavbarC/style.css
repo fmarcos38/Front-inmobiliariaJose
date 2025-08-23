@@ -19,7 +19,6 @@
     text-decoration: none;
     color: black;
 }
-
 .cont-fav-contadorFav{
     position: relative;
     display: flex;
@@ -30,4 +29,16 @@
     position: relative;
     top: -15px;
     font-size: 13px;
+}
+
+/* responsive */
+@media screen and (max-width: 950px) {
+    .ul-navbarInf > li{
+    font-size: 16px;
+}
+}
+@media screen and (max-width: 730px) {
+    .cont-navbar-C{
+        display: none;
+    }
 }

@@ -24,6 +24,11 @@ function NavbarC() {
                     </NavLink>
                 </li>
                 <li data-translate>
+                    <NavLink to='/tasaciones' className={'navlink-navbarInf'}>
+                        Tasaciones
+                    </NavLink>
+                </li>
+                <li data-translate>
                     <NavLink to='/nosotros' className={'navlink-navbarInf'}>
                         La empresa
                     </NavLink>

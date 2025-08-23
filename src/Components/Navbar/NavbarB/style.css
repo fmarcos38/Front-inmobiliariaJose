@@ -1,23 +1,41 @@
-.cont-navbar-B{
+.cont-navbar-B {
     width: 70%;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-.cont-navbar-B-items{
+
+.cont-navbar-B-items {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.p-tel{
+
+.p-tel {
     margin-right: 10px;
 }
-.p-mail{
+
+.p-mail {
     margin-right: 23px;
     text-decoration: none;
 }
-.a-email-navSup{
+
+.a-email-navSup {
     text-decoration: none;
     color: black;
+}
+
+/* responsive */
+@media screen and (max-width: 950px) {
+    .p-tel,
+    .p-mail {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .cont-navbar-B {
+        display: none;
+    }
 }

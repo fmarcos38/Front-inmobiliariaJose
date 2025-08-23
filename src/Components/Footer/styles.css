@@ -81,31 +81,88 @@
     align-items: start;
 }
 
-.col-3-footer{
+.col-3-footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.cont-titulo-col-3{
+
+.cont-titulo-col-3 {
     width: 80%;
     height: 30%;
     display: flex;
     justify-content: start;
     align-items: center;
 }
-.cont-items-foot{
+
+.cont-items-foot {
     width: 100%;
     height: 70%;
     display: flex;
     justify-content: start;
     align-items: start;
 }
+
 .cont-items-foot ul li {
     list-style: none;
 }
-.link-foot-item{
+
+.link-foot-item {
     text-decoration: none;
     color: black;
 
+}
+
+/* 📱 Responsive para pantallas chicas */
+@media screen and (max-width: 768px) {
+    .cont-principal-footer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--fondo-navbar);
+}
+    .cont-secundario-footer {
+        flex-direction: column;
+        /* Ahora en columna */
+        align-items: center;
+        /* Centra las columnas */
+        height: auto;
+        /* Que crezca según contenido */
+        padding: 20px 0;
+    }
+
+    .col-1-footer,
+    .col-2-footer,
+    .col-3-footer {
+        width: 100%;
+        /* Ocupan todo el ancho */
+        height: auto;
+        /* Ajustan la altura al contenido */
+        margin-bottom: 20px;
+        /* Separación entre columnas */
+    }
+
+    .cont-Logo-Foot,
+    .cont-texto-col-1-Foot,
+    .cont-texto-izq-Foot,
+    .cont-titulo-footer,
+    .cont-redes-foot,
+    .cont-titulo-col-3,
+    .cont-items-foot {
+        justify-content: center;
+        /* Centra el contenido */
+        text-align: center;
+    }
+
+    .cont-items-foot ul {
+        padding: 0;
+    }
+
+    .cont-items-foot ul li {
+        margin: 5px 0;
+        /* un poco de espacio entre ítems */
+    }
 }
