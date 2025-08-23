@@ -3,8 +3,11 @@ import LogoFooter from '../../Images/logo_ej_negro_1.png';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import './styles.css';
 import { NavLink } from 'react-router-dom';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import CallIcon from '@mui/icons-material/Call';
+import './styles.css';
+
 
 function Footer() {
     return (
@@ -12,20 +15,17 @@ function Footer() {
             <div className='cont-secundario-footer'>
                 <div className='col-1-footer'>
                     <div className='cont-Logo-Foot'>
-                        <img src={LogoFooter} alt='not found' className='logo-footeer'/>
+                        <img src={LogoFooter} alt='not found' className='logo-footeer' />
                     </div>
-                    <div className='cont-texto-col-1-Foot'>
-                        <p className='texto-izq-foot'>
-                            Todas las medidas enunciadas son meramente orientativas, 
-                            las medidas exactas serán las que se expresen en el respectivo título de propiedad de cada inmueble. 
-                            Todas las fotos, imágenes y videos son meramente ilustrativos y no contractuales. 
-                            Los precios enunciados son meramente orientativos y no contractuales.
-                        </p>
-                    </div>
-                    <div className='cont-texto-izq-Foot'>
-                        <p className='texto-izq-foot'>
-                            © 2025 Ezequiel Jose Estudio Inmobiliario.
-                        </p>
+                    <div className='cont-textos-col-1'>
+                        <div className='cont-direcc-foot'>
+                            <LocationOnIcon sx={{fontSize: '18px'}}/>
+                            <p className='p-texto-col-1'>Viamonte 3084</p>
+                        </div>
+                        <div className='cont-direcc-foot'>
+                            <CallIcon sx={{fontSize: '18px'}}/>
+                            <p className='p-texto-col-1'>2235554552</p>
+                        </div>
                     </div>
                 </div>
                 <div className='col-2-footer'>
@@ -33,9 +33,9 @@ function Footer() {
                         <h3 className='titulo-redes-foot'>Nuestras Redes</h3>
                     </div>
                     <div className='cont-redes-foot'>
-                        <InstagramIcon/>
-                        <FacebookIcon/>
-                        <WhatsAppIcon/>
+                        <InstagramIcon />
+                        <FacebookIcon />
+                        <WhatsAppIcon />
                     </div>
                 </div>
                 <div className='col-3-footer'>
@@ -92,6 +92,21 @@ function Footer() {
                             </li>
                         </ul>
                     </div>
+                </div>
+            </div>
+            <div className='cont-textos-inferiores'>
+                <div className='cont-texto-col-1-Foot'>
+                    <p className='texto-izq-foot'>
+                        Todas las medidas enunciadas son meramente orientativas,
+                        las medidas exactas serán las que se expresen en el respectivo título de propiedad de cada inmueble.
+                        Todas las fotos, imágenes y videos son meramente ilustrativos y no contractuales.
+                        Los precios enunciados son meramente orientativos y no contractuales.
+                    </p>
+                </div>
+                <div className='cont-texto-izq-Foot'>
+                    <p className='texto-izq-foot'>
+                        © 2025 Ezequiel Jose Estudio Inmobiliario. DESARROLLO WEB: Marcos Forastiere
+                    </p>
                 </div>
             </div>
         </div>

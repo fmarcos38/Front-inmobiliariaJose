@@ -1,7 +1,8 @@
 .cont-principal-footer {
     width: 100%;
-    height: 300px;
+    height: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: var(--fondo-navbar);
@@ -9,10 +10,11 @@
 
 .cont-secundario-footer {
     width: 80%;
-    height: 100%;
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
 }
 
 .col-1-footer,
@@ -20,11 +22,16 @@
 .col-3-footer {
     width: 33%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
 }
 
+/* col-1 */
 .cont-Logo-Foot {
-    width: 100%;
-    height: 30%;
+    width: 80%;
+    height: 20%;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -34,28 +41,36 @@
     height: 3rem;
 }
 
-.cont-texto-col-1-Foot {
-    width: 100%;
-    height: 50%;
+.cont-textos-col-1 {
+    width: 80%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.cont-direcc-foot {
+    width: 100%;
+    height: 25px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-left: 100px;
+    padding: 5px 0;
+}
+
+.p-texto-col-1 {
+    margin-left: 3px;
 }
 
 .texto-izq-foot {
     font-size: 13px;
 }
 
-.col-2-footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-}
-
+/* col - 2 */
 .cont-titulo-footer {
     width: 80%;
-    height: 30%;
+    height: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,6 +79,7 @@
 .titulo-redes-foot {
     font-size: 20px;
     font-weight: 600;
+    margin: 0;
 }
 
 .cont-redes-foot {
@@ -72,6 +88,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0;
 }
 
 .cont-redes-foot {
@@ -81,23 +98,18 @@
     align-items: start;
 }
 
-.col-3-footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+/* col -3 */
 
 .cont-titulo-col-3 {
     width: 80%;
-    height: 30%;
+    height: 20%;
     display: flex;
     justify-content: start;
     align-items: center;
 }
 
 .cont-items-foot {
-    width: 100%;
+    width: 80%;
     height: 70%;
     display: flex;
     justify-content: start;
@@ -114,16 +126,29 @@
 
 }
 
-/* 📱 Responsive para pantallas chicas */
-@media screen and (max-width: 768px) {
-    .cont-principal-footer {
+.cont-textos-inferiores {
+    width: 80%;
+}
+
+.cont-texto-col-1-Foot {
     width: 100%;
-    height: auto;
+    height: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--fondo-navbar);
 }
+
+/*Responsive*/
+@media screen and (max-width: 768px) {
+    .cont-principal-footer {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--fondo-navbar);
+    }
+
     .cont-secundario-footer {
         flex-direction: column;
         /* Ahora en columna */
@@ -138,13 +163,24 @@
     .col-2-footer,
     .col-3-footer {
         width: 100%;
-        /* Ocupan todo el ancho */
         height: auto;
-        /* Ajustan la altura al contenido */
         margin-bottom: 20px;
-        /* Separación entre columnas */
     }
-
+.cont-textos-col-1 {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cont-direcc-foot {
+    width: 100%;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
     .cont-Logo-Foot,
     .cont-texto-col-1-Foot,
     .cont-texto-izq-Foot,
@@ -153,7 +189,6 @@
     .cont-titulo-col-3,
     .cont-items-foot {
         justify-content: center;
-        /* Centra el contenido */
         text-align: center;
     }
 
