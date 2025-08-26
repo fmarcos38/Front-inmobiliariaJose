@@ -20,6 +20,7 @@ import PropsInternacionales from './Pages/PropsInternacionales';
 
 import MapaPAge from './Pages/MapaPage'; */
 import './App.css';
+import Tasaciones from './Components/Tasaciones';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
               <Route path='/ventas' element={<PropsVenta />} />
               <Route path='/alquiler' element={<PropsAlquiler />} />
               <Route path='/emprendimientos' element={<Emprendimientos />} />
+              <Route path='/tasaciones' element={<Tasaciones />} />
               <Route path='/nosotros' element={<LaEmpresaPage />} />
               <Route path='/contacto' element={<Contactanos />} />
               <Route path='/detalle/:id' element={<DetalleProp />} />
