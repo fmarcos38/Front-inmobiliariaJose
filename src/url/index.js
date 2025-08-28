@@ -1,6 +1,6 @@
 //desarrollo
-//const desarrollo = "http://localhost:3001";
+const desarrollo = "http://localhost:3001";
 //producción
-const produccion = " https://back-eze-8b8be311dbde.herokuapp.com"; //ORTIZ-> https://backliz-0268d04ede15.herokuapp.com
+//const produccion = " https://back-eze-8b8be311dbde.herokuapp.com"; 
 
-export const actual = produccion;
+export const actual = desarrollo;
