@@ -25,6 +25,7 @@ function Home() {
     const [operacion, setOperacion] = useState('');
     const [tipoPropiedad, setTipoPropiedad] = useState('Todas');
     const [ambientes, setAmbientes] = useState(); //en el back lo convierto a int
+    const [barrio, setBarrios] = useState([]);
     const [precioMin, setPrecioMin] = useState();
     const [precioMax, setPrecioMax] = useState();
     const [destacadas, setDestacadas] = useState(false);
@@ -60,9 +61,9 @@ function Home() {
     useEffect(() => {
         dispatch(getPropsDestacadas());
         dispatch(getEmprendimientos());
-        dispatch(getPropsMap(limit, offset, operacion, tipoPropiedad, precioMin, precioMax, ambientes, destacadas));
-        dispatch(getProps(limit, offset, operacion, tipoPropiedad, precioMin, precioMax, ambientes, destacadas));
-    }, [dispatch, limit, offset, operacion, tipoPropiedad, ambientes, precioMin, precioMax, destacadas]);
+        dispatch(getPropsMap(limit, offset, operacion, tipoPropiedad, barrio, precioMin, precioMax, ambientes, destacadas));
+        dispatch(getProps(limit, offset, operacion, tipoPropiedad, barrio, precioMin, precioMax, ambientes, destacadas));
+    }, [dispatch, limit, offset, operacion, tipoPropiedad, ambientes, barrio, precioMin, precioMax, destacadas]);
 
     return (
         loading ? (
@@ -70,6 +71,23 @@ function Home() {
         ) : (
             <div className='cont-home'>
                 <LandigA />
+
+                {/* filtros */}
+                <div className='cont-filtros-props'>
+                    <div className='cont-filtros-home'>
+                        <FiltrosSelect
+                            verTipoOperacion='true'
+                            setCurrentPage={setCurrentPage}
+                            setOperacion={setOperacion}
+                            setTipoPropiedad={setTipoPropiedad}
+                            setBarrios={setBarrios}
+                            setAmbientes={setAmbientes}
+                            setPrecioMin={setPrecioMin}
+                            setPrecioMax={setPrecioMax}
+                        />
+                    </div>
+                </div>
+
                 {/* Destacadas */}
                 <div className='cont-home-propsDestacadas'>
                     <ListaPropsDestacadas allPropsDestacadas={allPropsDestacadas} vista={"ambas"} id='listaProps' />
@@ -90,24 +108,6 @@ function Home() {
                     </div>
                 </div> */}
 
-                {/* filtros */}
-                <div className='cont-filtros-props'>
-                    <div className='cont-filtros-home'>
-                        <FiltrosSelect
-                            verTipoOperacion='true'
-                            precioMin={precioMin}
-                            precioMax={precioMax}
-                            destacadas={destacadas}
-                            setPrecioMin={setPrecioMin}
-                            setPrecioMax={setPrecioMax}
-                            setCurrentPage={setCurrentPage}
-                            setOperacion={setOperacion}
-                            setTipoPropiedad={setTipoPropiedad}
-                            setAmbientes={setAmbientes}
-                            setDestacadas={setDestacadas}
-                        />
-                    </div>
-                </div>
                 {/* Lista props */}
                 <div className='cont-home-propsDestacadas'>
                     <div className='cont-titulo-emp'>
