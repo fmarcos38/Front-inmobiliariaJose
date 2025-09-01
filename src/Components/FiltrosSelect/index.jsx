@@ -17,13 +17,50 @@ function FiltrosSelect({
     ];
     const ambientes = ['1', '2', '3', '4', 'mas'];
     const barrios = [
-        "Terminal Vieja", "Plaza Mitre", "Centro", "Varese", "La Perla", "Guemes", "Chauvin", "Don Bosco",
-        "Los Troncos", "Las Margaritas", "El Gaucho", "Barracas de San Benito", "Playa Grande", "Playa Chica",
-        "Plaza España", "Arenas del Sur", "Macrocentro", "El Marquesado", "La Armonía", "La Florida", "Lomas De Stella Maris",
-        "San Carlos", "Santa Cecilia", "Sierra De Los Padres", "Stella Maris", "Villa Primera", "Chapadmalal",
-        "Marayui", "Olas Chapadmalal", "Rumenco", "Rumenco joven", "Casonas del Harás", "Harás del Mar",
-        "Las Prunas", "Arenas del Sur", "Arenas Chico", "Cenderos de Rumenco", "Aureal Park", "Developer Aqua", "Costa del Sol",
-        "Piñares de Santa Clara", "La Armonía", "La Cercania", "Developer Park",
+        "Arenas Chico",
+        "Arenas del Sur",
+        "Arenas del Sur",
+        "Aureal Park",
+        "Barracas de San Benito",
+        "Casonas del Harás",
+        "Cenderos de Rumenco",
+        "Centro",
+        "Chapadmalal",
+        "Chauvin",
+        "Costa del Sol",
+        "Developer Aqua",
+        "Developer Park",
+        "Don Bosco",
+        "El Gaucho",
+        "El Marquesado",
+        "Guemes",
+        "Harás del Mar",
+        "La Armonía",
+        "La Armonía",
+        "La Cercania",
+        "La Florida",
+        "La Perla",
+        "Las Margaritas",
+        "Las Prunas",
+        "Lomas De Stella Maris",
+        "Los Troncos",
+        "Macrocentro",
+        "Marayui",
+        "Olas Chapadmalal",
+        "Piñares de Santa Clara",
+        "Playa Chica",
+        "Playa Grande",
+        "Plaza España",
+        "Plaza Mitre",
+        "Rumenco",
+        "Rumenco joven",
+        "San Carlos",
+        "Santa Cecilia",
+        "Sierra De Los Padres",
+        "Stella Maris",
+        "Terminal Vieja",
+        "Villa Primera",
+        "Varese"
     ];
 
     const [localMin, setLocalMin] = useState('');
@@ -57,10 +94,11 @@ function FiltrosSelect({
     return (
         <div className="cont-filtrosSelect">
             <div className="subCont-filtrosSelect">
-                <div className="cont-filtro-tipoOperacion">
-                    <p className='focoCompra'>Filtros</p>
+                <div className="cont-filtro-titulo">
+                    <p className='titulo-filtros'>Filtros</p>
                 </div>
-                <div className="cont-selects">
+                <div className="cont-selects-filtros">
+                    {/* tipo op */}
                     <div className="cont-op-tipoP">
                         {
                             verTipoOperacion === 'true' &&
@@ -71,6 +109,9 @@ function FiltrosSelect({
                                 ))}
                             </select>
                         }
+                    </div>
+                    {/* tipo prop */}
+                    <div className="cont-tipo-prop">
                         <select onChange={onChangeTipoProp} className="select-tipoProp">
                             <option>Tipo de propiedad</option>
                             {tipoProp.map(prop => (
@@ -78,9 +119,8 @@ function FiltrosSelect({
                             ))}
                         </select>
                     </div>
-
                     {/* barrios */}
-                    <div className="cont-amb-destacadas">
+                    <div className="cont-amb-barrio">
                         <select onChange={onChangeBarrio} className="select-tipoProp">
                             <option>Barrio</option>
                             {barrios.map(barrio => (
@@ -90,7 +130,7 @@ function FiltrosSelect({
                     </div>
 
                     {/* ambientes */}
-                    <div className="cont-amb-destacadas">
+                    <div className="cont-amb">
                         <select onChange={onChangeAmb} className="select-tipoProp">
                             <option>Ambientes</option>
                             {ambientes.map(amb => (
@@ -128,21 +168,21 @@ function FiltrosSelect({
                 </div>
             </div>
             {/* Mostrar barrios seleccionados */}
-                    {barriosSeleccionados.length > 0 && (
-                        <div className="barrios-seleccionados">
-                            {barriosSeleccionados.map(b => (
-                                <div key={b} className="barrio-item">
-                                    <span>{b}</span>
-                                    <button
-                                        onClick={() => eliminarBarrio(b)}
-                                        className="btn-eliminar-barrio"
-                                    >
-                                        ✕
-                                    </button>
-                                </div>
-                            ))}
+            {barriosSeleccionados.length > 0 && (
+                <div className="barrios-seleccionados">
+                    {barriosSeleccionados.map(b => (
+                        <div key={b} className="barrio-item">
+                            <span>{b}</span>
+                            <button
+                                onClick={() => eliminarBarrio(b)}
+                                className="btn-eliminar-barrio"
+                            >
+                                ✕
+                            </button>
                         </div>
-                    )}
+                    ))}
+                </div>
+            )}
         </div>
     );
 }

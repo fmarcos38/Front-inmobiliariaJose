@@ -7,7 +7,7 @@ import { actual } from "../../url";
 
 
 //--actions para props-------------------------------------------------------------
-export const getPropsMap = (limit, offset, operacion, tipoPropiedad, barrio, precioMin, precioMax, ambientes, destacadas) => {
+export const getPropsMap = (limit, offset, operacion, tipoPropiedad, barrios, precioMin, precioMax, ambientes, destacadas) => {
     return async function (dispatch) {
         
         try {
@@ -16,7 +16,7 @@ export const getPropsMap = (limit, offset, operacion, tipoPropiedad, barrio, pre
 
             if(operacion) queryParams += `&operacion=${operacion}`;
             if(tipoPropiedad) queryParams += `&tipo=${tipoPropiedad}`;
-            if(barrio) queryParams += `&barrio=${barrio}`;
+            if(barrios) queryParams += `&barrio=${barrios}`;
             if(ambientes) queryParams += `&ambientes=${ambientes}`;
             if(precioMin) queryParams += `&precioMin=${precioMin}`;
             if(precioMax) queryParams += `&precioMax=${precioMax}`;
@@ -31,7 +31,7 @@ export const getPropsMap = (limit, offset, operacion, tipoPropiedad, barrio, pre
     }
 }
 //trae props
-export const getProps = (limit, offset, operacion, tipoPropiedad, barrio, precioMin, precioMax, ambientes, destacadas) => {
+export const getProps = (limit, offset, operacion, tipoPropiedad, barrios, precioMin, precioMax, ambientes, destacadas) => {
     return async function(dispatch) {
         dispatch({type: LOADING});
 
@@ -41,7 +41,7 @@ export const getProps = (limit, offset, operacion, tipoPropiedad, barrio, precio
 
             if(operacion) queryParams += `&operacion=${operacion}`;
             if(tipoPropiedad) queryParams += `&tipo=${tipoPropiedad}`;
-            if(barrio) queryParams += `&barrio=${barrio}`;
+            if(barrios) queryParams += `&barrios=${barrios}`;
             if(ambientes) queryParams += `&ambientes=${ambientes}`;
             if(precioMin) queryParams += `&precioMin=${precioMin}`;
             if(precioMax) queryParams += `&precioMax=${precioMax}`;

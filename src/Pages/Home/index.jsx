@@ -7,7 +7,7 @@ import ListaPropiedades from '../../Components/ListaPropiedades'
 import ListaPropsDestacadas from '../../Components/ListaPropsDestacadas';
 import ListaEmprendimientos from '../../Components/ListaEmprendimientos';
 import FiltrosSelect from '../../Components/FiltrosSelect';
-import Paginacion from '../../Components/Paginacion';
+//import Paginacion from '../../Components/Paginacion';
 import Institucional from '../../Components/Institucional';
 import MapaPropiedades from '../../Components/MapProps';
 import BotonVerTodas from '../../Components/Botones/BotonVerTodas';
@@ -25,7 +25,7 @@ function Home() {
     const [operacion, setOperacion] = useState('');
     const [tipoPropiedad, setTipoPropiedad] = useState('Todas');
     const [ambientes, setAmbientes] = useState(); //en el back lo convierto a int
-    const [barrio, setBarrios] = useState([]);
+    const [barrios, setBarrios] = useState([]);
     const [precioMin, setPrecioMin] = useState();
     const [precioMax, setPrecioMax] = useState();
     const [destacadas, setDestacadas] = useState(false);
@@ -61,9 +61,9 @@ function Home() {
     useEffect(() => {
         dispatch(getPropsDestacadas());
         dispatch(getEmprendimientos());
-        dispatch(getPropsMap(limit, offset, operacion, tipoPropiedad, barrio, precioMin, precioMax, ambientes, destacadas));
-        dispatch(getProps(limit, offset, operacion, tipoPropiedad, barrio, precioMin, precioMax, ambientes, destacadas));
-    }, [dispatch, limit, offset, operacion, tipoPropiedad, ambientes, barrio, precioMin, precioMax, destacadas]);
+        dispatch(getPropsMap(limit, offset, operacion, tipoPropiedad, barrios, precioMin, precioMax, ambientes, destacadas));
+        dispatch(getProps(limit, offset, operacion, tipoPropiedad, barrios, precioMin, precioMax, ambientes, destacadas));
+    }, [dispatch, limit, offset, operacion, tipoPropiedad, ambientes, barrios, precioMin, precioMax, destacadas]);
 
     return (
         loading ? (
@@ -73,25 +73,21 @@ function Home() {
                 <LandigA />
 
                 {/* filtros */}
-                <div className='cont-filtros-props'>
-                    <div className='cont-filtros-home'>
-                        <FiltrosSelect
-                            verTipoOperacion='true'
-                            setCurrentPage={setCurrentPage}
-                            setOperacion={setOperacion}
-                            setTipoPropiedad={setTipoPropiedad}
-                            setBarrios={setBarrios}
-                            setAmbientes={setAmbientes}
-                            setPrecioMin={setPrecioMin}
-                            setPrecioMax={setPrecioMax}
-                        />
-                    </div>
-                </div>
+                <FiltrosSelect
+                    verTipoOperacion='true'
+                    setCurrentPage={setCurrentPage}
+                    setOperacion={setOperacion}
+                    setTipoPropiedad={setTipoPropiedad}
+                    setBarrios={setBarrios}
+                    setAmbientes={setAmbientes}
+                    setPrecioMin={setPrecioMin}
+                    setPrecioMax={setPrecioMax}
+                />
 
                 {/* Destacadas */}
-                <div className='cont-home-propsDestacadas'>
+                {/* <div className='cont-home-propsDestacadas'>
                     <ListaPropsDestacadas allPropsDestacadas={allPropsDestacadas} vista={"ambas"} id='listaProps' />
-                </div>
+                </div> */}
 
                 {/* Emprendimientos */}
                 {/* <div className='cont-home-Emprendimientos'>
@@ -110,44 +106,37 @@ function Home() {
 
                 {/* Lista props */}
                 <div className='cont-home-propsDestacadas'>
-                    <div className='cont-titulo-emp'>
-                        <div className='cont-h1-listaEmp'>
-                            <h1>Nuestras Propiedades</h1>
-                        </div>
-                        <div className='cont-btn-verTodas-listaEmp'>
-                            <button onClick={() => { onClickListaProps() }}>Lista</button>
-                            <button onClick={() => { onClickMapaProps() }}>Mapa</button>
-                        </div>
-                    </div>
                     {
                         listaProps === true && vistaMapa === false &&
                         <>
-                            <ListaPropiedades allProps={allProps} vista={"ambas"} id='listaProps' />
-                            {/* Paginación */}
-                            {
-                                allProps.length > 0 && (
-                                    <Paginacion
-                                        allProps={allProps}
-                                        currentPage={currentPage}
-                                        onPageChange={setCurrentPage}
-                                        totalPropiedades={totalPropiedades}
-                                        propiedadesPorPagina={propiedadesPorPagina}
-                                    />
-                                )
-                            }
+                            <ListaPropiedades
+                                allProps={allProps}
+                                vista={"ambas"}
+                                onClickListaProps={onClickListaProps}
+                                onClickMapaProps={onClickMapaProps}
+                                currentPage={currentPage}
+                                onPageChange={setCurrentPage}
+                                totalPropiedades={totalPropiedades}
+                                propiedadesPorPagina={propiedadesPorPagina}
+                                id='listaProps'
+                            />
                         </>
                     }
                     {
                         listaProps === false && vistaMapa === true &&
                         <>
-                            <MapaPropiedades propiedades={allPropsMap} />
+                            <MapaPropiedades 
+                                propiedades={allPropsMap} 
+                                onClickListaProps={onClickListaProps}
+                                onClickMapaProps={onClickMapaProps}
+                            />
                         </>
                     }
 
                 </div>
 
                 {/* Institucional */}
-                <Institucional />
+                {/* <Institucional /> */}
             </div>
         )
     )
