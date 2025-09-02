@@ -85,9 +85,7 @@ function Home() {
                 />
 
                 {/* Destacadas */}
-                {/* <div className='cont-home-propsDestacadas'>
-                    <ListaPropsDestacadas allPropsDestacadas={allPropsDestacadas} vista={"ambas"} id='listaProps' />
-                </div> */}
+                <ListaPropsDestacadas allPropsDestacadas={allPropsDestacadas} vista={"ambas"} id='listaProps' />
 
                 {/* Emprendimientos */}
                 {/* <div className='cont-home-Emprendimientos'>
