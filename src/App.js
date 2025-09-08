@@ -21,6 +21,7 @@ import PropsInternacionales from './Pages/PropsInternacionales';
 import MapaPAge from './Pages/MapaPage'; */
 import './App.css';
 import Tasaciones from './Components/Tasaciones';
+import PageDestacadas from './Pages/PageDestacadas';
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
               <Route path='/detalle/:id' element={<DetalleProp />} />
               <Route path='/detalleEmp/:id' element={<DetalleEmp />} />
               <Route path='/favoritos' element={<FavoritosPage />} />
+              <Route path='/verDestacadas' element={<PageDestacadas/>} />
               {/* <Route path='/mapa' element={< MapaPAge/>}/> */} 
               <Route path='*' element={<Home />} />
             </Routes>

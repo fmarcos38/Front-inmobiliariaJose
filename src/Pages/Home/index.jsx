@@ -88,19 +88,19 @@ function Home() {
                 <ListaPropsDestacadas allPropsDestacadas={allPropsDestacadas} vista={"ambas"} id='listaProps' />
 
                 {/* Emprendimientos */}
-                {/* <div className='cont-home-Emprendimientos'>
+                <div className='cont-home-Emprendimientos'>
                     <div className='cont-titulo-emp'>
                         <div className='cont-h1-listaEmp'>
                             <h1>Nuestros Emprendimientos</h1>
                         </div>
                         <div className='cont-btn-verTodas-listaEmp'>
-                            <BotonVerTodas />
+                            <BotonVerTodas url={'/emprendimientos'}/>
                         </div>
                     </div>
-                    <div className='cont-lista-emp-home'>
-                        <ListaEmprendimientos allEmp={allEmp} />
-                    </div>
-                </div> */}
+                    {/* lista Emp */}
+                    <ListaEmprendimientos allEmp={allEmp} />
+                </div>
+                
 
                 {/* Lista props */}
                 {/* <div className='cont-home-propsDestacadas'>
