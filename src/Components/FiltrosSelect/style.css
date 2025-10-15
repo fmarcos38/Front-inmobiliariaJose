@@ -5,17 +5,19 @@
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     gap: 15px;
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1s ease forwards;
-    animation-delay: 3s; /* aparece 3s después */
+    animation-delay: 3s;
+    /* aparece 3s después */
 }
+
 /* estilos contenedor gral para las vistas de Venta y Alquiler */
-.cont-filtrosSelect-Venta{
+.cont-filtrosSelect-Venta {
     width: 80%;
     min-height: 120px;
     height: auto;
@@ -49,6 +51,7 @@
     width: 100%;
     text-align: left;
 }
+
 /* para vistas Ventas y Alq */
 .cont-filtro-titulo-Venta {
     height: 45px;
@@ -57,17 +60,20 @@
     align-items: center;
     color: white;
 }
+
 .titulo-filtros {
     font-size: 1.6rem;
     font-weight: 600;
     color: #fff;
     letter-spacing: 1px;
 }
+
 /* para vistas Ventas y Alq */
 .titulo-filtros-Venta {
     font-size: 1.2rem;
     font-weight: 600;
 }
+
 /* selects */
 .cont-selects-filtros {
     width: 100%;
@@ -87,7 +93,7 @@
     background: rgba(255, 255, 255, 0.85);
     color: #333;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
 }
 
@@ -105,8 +111,8 @@
     gap: 10px;
     padding: 5px;
     border-radius: 12px;
-    background: rgba(255,255,255,0.9);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -190,28 +196,137 @@
     transform: scale(1.2);
 }
 
-/* responsive */
+/* Responsive */
 @media screen and (max-width: 768px) {
     .cont-filtrosSelect {
         width: 95%;
+        height: 200px;
         padding: 15px;
     }
 
     .cont-selects-filtros {
-        flex-direction: column;
+        display: flex;
+        flex-wrap: wrap;
         align-items: stretch;
     }
 
+    .cont-filtro-titulo,
+    .cont-filtro-titulo-Venta {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        height: 30px;
+    }
+
+    .titulo-filtros {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
     .select-tipoProp {
-        width: 100%;
+        width: 45%;
     }
 
     .cont-filtro-precioMaxMin {
-        flex-direction: column;
+        display: flex;
         gap: 8px;
     }
 
     .input-precioMin {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .cont-filtrosSelect {
+        width: 95%;
+        padding: 12px;
+        border-radius: 10px;
+        gap: 10px;
+    }
+
+    .cont-selects-filtros {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "op tipo"
+            "barrio amb"
+            "precio precio";
+        gap: 10px;
         width: 100%;
+    }
+
+    /* Asignamos áreas */
+    .cont-op-tipoP select {
+        grid-area: op;
+    }
+
+    .cont-tipo-prop select {
+        grid-area: tipo;
+    }
+
+    .cont-amb-barrio select {
+        grid-area: barrio;
+    }
+
+    .cont-amb select {
+        grid-area: amb;
+    }
+
+    .cont-primario-precio {
+        grid-area: precio;
+        width: 100%;
+    }
+
+    .select-tipoProp {
+        width: 100%;
+        font-size: 15px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    /* Sección precios */
+    .cont-filtro-precioMaxMin {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 12px;
+        width: 100%;
+    }
+
+    .cont-filtro-precioMaxMin label {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 4px;
+        color: #333;
+    }
+
+    .input-precioMin {
+        width: 80%;
+        padding: 8px;
+        border-radius: 8px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .btn-aplicar-precio {
+        width: 85%;
+        padding: 10px;
+        font-size: 15px;
+        border-radius: 8px;
+    }
+
+    /* Chips seleccionados */
+    .barrios-seleccionados {
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .barrio-item {
+        font-size: 13px;
+        padding: 4px 10px;
     }
 }

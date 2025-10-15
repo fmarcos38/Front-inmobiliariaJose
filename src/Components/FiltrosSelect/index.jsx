@@ -146,7 +146,6 @@ function FiltrosSelect({
                             ))}
                         </select>
                     </div>
-
                     {/* ambientes */}
                     <div className="cont-amb">
                         <select onChange={onChangeAmb} className="select-tipoProp">
@@ -156,7 +155,6 @@ function FiltrosSelect({
                             ))}
                         </select>
                     </div>
-
                     {/* precios */}
                     <div className="cont-primario-precio">
                         <div className="cont-filtro-precioMaxMin">
