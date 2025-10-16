@@ -18,17 +18,23 @@
 
 /* estilos contenedor gral para las vistas de Venta y Alquiler */
 .cont-filtrosSelect-Venta {
-    width: 80%;
-    min-height: 120px;
+    width: 60%;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     margin-top: 10px;
     padding: 8px;
     border-radius: 5px;
-    background-color: rgb(80, 80, 80);
+    background-color: rgba(80, 80, 80, 0.755);
+}
+
+.cont-selects-filtros-Venta {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @keyframes fadeInUp {
@@ -83,9 +89,31 @@
     justify-content: center;
 }
 
+.cont-items-noPrecio {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* para venta Alq */
+.cont-tipoOp_y_tipoProp-Venta {
+    display: flex;
+    justify-content: center;
+}
+
+.cont-op-tipoP,
+.cont-tipo-prop,
+.cont-amb-barrio,
+.cont-amb {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .select-tipoProp {
-    flex: 1 1 200px;
-    min-width: 180px;
+    width: 230px;
     padding: 12px;
     border: none;
     border-radius: 12px;
@@ -197,136 +225,93 @@
 }
 
 /* Responsive */
-@media screen and (max-width: 768px) {
-    .cont-filtrosSelect {
-        width: 95%;
-        height: 200px;
-        padding: 15px;
-    }
 
-    .cont-selects-filtros {
+@media screen and (max-width: 1100px) {
+
+    .cont-items-noPrecio {
+        width: 80%;
         display: flex;
         flex-wrap: wrap;
-        align-items: stretch;
-    }
-
-    .cont-filtro-titulo,
-    .cont-filtro-titulo-Venta {
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        height: 30px;
-    }
-
-    .titulo-filtros {
-        font-size: 1.2rem;
-        font-weight: 600;
     }
 
     .select-tipoProp {
-        width: 45%;
-    }
-
-    .cont-filtro-precioMaxMin {
-        display: flex;
-        gap: 8px;
-    }
-
-    .input-precioMin {
-        width: 40%;
+        
+        margin-bottom: 5px;
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 860px) {
     .cont-filtrosSelect {
         width: 95%;
+        height: auto;
         padding: 12px;
         border-radius: 10px;
         gap: 10px;
     }
 
+    .subCont-filtrosSelect {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .cont-selects-filtros {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas:
-            "op tipo"
-            "barrio amb"
-            "precio precio";
-        gap: 10px;
-        width: 100%;
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
-    /* Asignamos áreas */
-    .cont-op-tipoP select {
-        grid-area: op;
-    }
-
-    .cont-tipo-prop select {
-        grid-area: tipo;
-    }
-
-    .cont-amb-barrio select {
-        grid-area: barrio;
-    }
-
-    .cont-amb select {
-        grid-area: amb;
-    }
-
-    .cont-primario-precio {
-        grid-area: precio;
-        width: 100%;
+.cont-items-noPrecio {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    .cont-op-tipoP,
+    .cont-tipo-prop,
+    .cont-amb-barrio,
+    .cont-amb {
+        width: 48%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .select-tipoProp {
-        width: 100%;
-        font-size: 15px;
-        padding: 10px;
-        border-radius: 10px;
-    }
-
-    /* Sección precios */
-    .cont-filtro-precioMaxMin {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-        padding: 10px;
-        background: rgba(255, 255, 255, 0.95);
-        border-radius: 12px;
-        width: 100%;
-    }
-
-    .cont-filtro-precioMaxMin label {
-        font-size: 14px;
-        font-weight: 600;
-        margin-bottom: 4px;
-        color: #333;
+        width: 95%;
+        font-size: 12px;
     }
 
     .input-precioMin {
-        width: 80%;
-        padding: 8px;
-        border-radius: 8px;
-        font-size: 14px;
-        text-align: center;
+        width: 110px;
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .cont-filtro-precioMaxMin {
+        position: relative;
     }
 
-    .btn-aplicar-precio {
-        width: 85%;
-        padding: 10px;
-        font-size: 15px;
-        border-radius: 8px;
+    .cont-filtro-precioMaxMin>label {
+        position: absolute;
+        top: -8px;
+        left: 10px;
+        padding: 2px 5px;
+        font-size: 12px;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.85);
     }
 
-    /* Chips seleccionados */
-    .barrios-seleccionados {
-        justify-content: center;
-        gap: 6px;
+    .cont-filtro-precioMaxMin>input {
+        margin-top: 10px;
     }
 
-    .barrio-item {
-        font-size: 13px;
-        padding: 4px 10px;
+    .barrio-item>span {
+        font-size: 12px;
     }
 }

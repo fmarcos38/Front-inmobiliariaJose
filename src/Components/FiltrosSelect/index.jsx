@@ -115,45 +115,47 @@ function FiltrosSelect({
                 <div className={verTipoOperacion ? "cont-filtro-titulo" : "cont-filtro-titulo-Venta"}>
                     <p className={verTipoOperacion ? "titulo-filtros" : "titulo-filtros-Venta"}>Filtros</p>
                 </div>
-                <div className="cont-selects-filtros">
-                    {/* tipo op */}
-                    <div className="cont-op-tipoP">
+                <div className={"cont-selects-filtros"}>
+                    <div className="cont-items-noPrecio">
+                        {/* tipo op */}
                         {
-                            verTipoOperacion === 'true' &&
-                            <select onChange={onChangeTipoOp} className="select-tipoProp">
-                                <option>Tipo de operación</option>
-                                {operacion.map(op => (
-                                    <option key={op} value={op}>{op}</option>
+                            verTipoOperacion === true &&
+                            <div className="cont-op-tipoP">
+                                <select onChange={onChangeTipoOp} className="select-tipoProp">
+                                    <option>Tipo de operación</option>
+                                    {operacion.map(op => (
+                                        <option key={op} value={op}>{op}</option>
+                                    ))}
+                                </select>
+                            </div>
+                        }
+                        {/* tipo prop */}
+                        <div className="cont-tipo-prop">
+                            <select onChange={onChangeTipoProp} className="select-tipoProp">
+                                <option>Tipo de propiedad</option>
+                                {tipoProp.map(prop => (
+                                    <option key={prop} value={prop}>{prop}</option>
                                 ))}
                             </select>
-                        }
-                    </div>
-                    {/* tipo prop */}
-                    <div className="cont-tipo-prop">
-                        <select onChange={onChangeTipoProp} className="select-tipoProp">
-                            <option>Tipo de propiedad</option>
-                            {tipoProp.map(prop => (
-                                <option key={prop} value={prop}>{prop}</option>
-                            ))}
-                        </select>
-                    </div>
-                    {/* barrios */}
-                    <div className="cont-amb-barrio">
-                        <select onChange={onChangeBarrio} className="select-tipoProp">
-                            <option>Barrio</option>
-                            {barrios.map((barrio, index) => (
-                                <option key={index} value={barrio}>{barrio}</option>
-                            ))}
-                        </select>
-                    </div>
-                    {/* ambientes */}
-                    <div className="cont-amb">
-                        <select onChange={onChangeAmb} className="select-tipoProp">
-                            <option>Ambientes</option>
-                            {ambientes.map(amb => (
-                                <option key={amb} value={amb}>{amb}</option>
-                            ))}
-                        </select>
+                        </div>
+                        {/* barrios */}
+                        <div className="cont-amb-barrio">
+                            <select onChange={onChangeBarrio} className="select-tipoProp">
+                                <option>Barrio</option>
+                                {barrios.map((barrio, index) => (
+                                    <option key={index} value={barrio}>{barrio}</option>
+                                ))}
+                            </select>
+                        </div>
+                        {/* ambientes */}
+                        <div className="cont-amb">
+                            <select onChange={onChangeAmb} className="select-tipoProp">
+                                <option>Ambientes</option>
+                                {ambientes.map(amb => (
+                                    <option key={amb} value={amb}>{amb}</option>
+                                ))}
+                            </select>
+                        </div>
                     </div>
                     {/* precios */}
                     <div className="cont-primario-precio">
