@@ -27,7 +27,7 @@
     margin-top: 10px;
     padding: 8px;
     border-radius: 5px;
-    background-color: rgba(80, 80, 80, 0.755);
+    background-color: #444444cf;
 }
 
 .cont-selects-filtros-Venta {
@@ -72,6 +72,7 @@
     font-weight: 600;
     color: #fff;
     letter-spacing: 1px;
+    margin: 0;
 }
 
 /* para vistas Ventas y Alq */
@@ -235,8 +236,16 @@
     }
 
     .select-tipoProp {
-        
+        width: 200px;
+        font-size: 15px;
         margin-bottom: 5px;
+    }
+
+    /* estilos contenedor gral para las vistas de Venta y Alquiler */
+    .cont-filtrosSelect-Venta {
+        width: 80%;
+        margin-bottom: 20px;
+        /* background-color: var(--fondo-navbar); */
     }
 }
 
@@ -264,12 +273,13 @@
         align-items: center;
     }
 
-.cont-items-noPrecio {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .cont-items-noPrecio {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .cont-op-tipoP,
     .cont-tipo-prop,
     .cont-amb-barrio,
@@ -313,5 +323,20 @@
 
     .barrio-item>span {
         font-size: 12px;
+    }
+
+    /* estilos contenedor gral para las vistas de Venta y Alquiler */
+    .cont-filtrosSelect-Venta {
+        width: 90%;
+        margin-bottom: 20px;
+        /* background-color: var(--fondo-navbar); */
+    }
+
+    .cont-filtro-titulo-Venta{
+        height: 30px;
+    }
+
+    .titulo-filtros-Venta{
+        color: white;
     }
 }

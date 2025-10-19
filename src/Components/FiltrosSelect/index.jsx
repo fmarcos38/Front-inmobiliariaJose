@@ -115,7 +115,8 @@ function FiltrosSelect({
                 <div className={verTipoOperacion ? "cont-filtro-titulo" : "cont-filtro-titulo-Venta"}>
                     <p className={verTipoOperacion ? "titulo-filtros" : "titulo-filtros-Venta"}>Filtros</p>
                 </div>
-                <div className={"cont-selects-filtros"}>
+                <div className="cont-selects-filtros">
+                    {/* porp, op, barrio, amb */}
                     <div className="cont-items-noPrecio">
                         {/* tipo op */}
                         {
