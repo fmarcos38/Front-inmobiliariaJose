@@ -100,7 +100,6 @@
         font-size: 18px;
     }
 }
-
 @media screen  and (max-width:900px) {
     .titulo-venta-h1 {
         width: 60%;
