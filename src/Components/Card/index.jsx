@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import { capitalizar, formatMoney } from '../../Helps';
+import { formatMoney } from '../../Helps';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import HomeIcon from '@mui/icons-material/Home';
 import TagIcon from '@mui/icons-material/Tag';
@@ -89,34 +89,48 @@ function Card({
                 <div className="card-info1">
                     <div className="cont-titulo-publicacion-card">
                         <div className="cont-titulo-card">
-                            <h5 className="tituloPublicacion" data-translate>
-                                {capitalizar(tituloPublicacion)}
+                            <h5 className="tituloPublicacion">
+                                {tituloPublicacion}
                             </h5>
                         </div>
                         <div className="cont-direcc-icono-card">
                             <LocationOnIcon sx={{ color: 'grey' }} />
-                            <p className="direcc-card" data-translate>{direccionF}</p>
+                            <p className="direcc-card">{direccionF}</p>
                         </div>
                     </div>
 
                     <div className="cont-precio-fav">
-                        <div className="cont-precio">
-                            {vista === "Venta" && venta && (
-                                <p className="precio-card">
-                                    {venta.precios[0]?.moneda} {formatMoney(venta.precios[0]?.precio)}
-                                </p>
-                            )}
-                            {vista === "Alquiler" && alquiler && (
-                                <p className="precio-card">
-                                    {alquiler.precios[0]?.moneda} {formatMoney(alquiler.precios[0]?.precio)}
-                                </p>
-                            )}
-                            {vista === "ambas" && venta && alquiler && (
-                                <p className="precio-card">
-                                    {venta.precios[0]?.moneda} {formatMoney(venta.precios[0]?.precio)} / {alquiler.precios[0]?.moneda} {formatMoney(alquiler.precios[0]?.precio)}
-                                </p>
-                            )}
-                        </div>
+                        <div className='cont-precio'>
+                        {vista === "Venta" && venta && (
+                            <p className='precio'>
+                                {venta.precios[0]?.moneda} {formatMoney(venta.precios[0]?.precio)}
+                            </p>
+                        )}
+
+                        {vista === "Alquiler" && alquiler && (
+                            <p className='precio'>
+                                {alquiler.precios[0]?.moneda} {formatMoney(alquiler.precios[0]?.precio)}
+                            </p>
+                        )}
+
+                        {vista === "ambas" && venta && alquiler && (
+                            <p className='precio'>
+                                {venta.precios[0]?.moneda} {formatMoney(venta.precios[0]?.precio)} / {alquiler.precios[0]?.moneda} {formatMoney(alquiler.precios[0]?.precio)}
+                            </p>
+                        )}
+
+                        {vista === "ambas" && venta && !alquiler && (
+                            <p className='precio'>
+                                {venta.precios[0]?.moneda} {formatMoney(venta.precios[0]?.precio)}
+                            </p>
+                        )}
+
+                        {vista === "ambas" && alquiler && !venta && (
+                            <p className='precio'>
+                                {alquiler.precios[0]?.moneda} {formatMoney(alquiler.precios[0]?.precio)}
+                            </p>
+                        )}
+                    </div>
 
                         {/*Botón Favorito */}
                         <div className="cont-fav" onClick={handleFavoritoClick}>
