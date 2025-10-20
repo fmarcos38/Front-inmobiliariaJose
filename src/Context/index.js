@@ -3,103 +3,73 @@ import { userData } from '../localStorage';
 
 export const InmobiliariaContext = createContext();
 
-const API_KEY = process.env.REACT_APP_GOOGLE_TRASLATION; // Reemplázalo con tu API Key
-
 const InmobiliariaProvider = ({ children }) => {
-    const [idioma, setIdioma] = useState("es");
-    //estado data usuario logeado, por eso null es un objeto
-    const [userLog, setUserLog] = useState(null);
-    //estado para login
-    const [isAuthenticated, setIsAuthenticated] = useState(false); 
-    //estado nombre admin logeado
-    const [nombreUser, setNombreUser] = useState('');
-    //estado para menú hamburguesa
-    const [ isOpenModalVideo, setisOpenModalVideo ] = useState(false);
-    
-  const login = () => {
-    setIsAuthenticated(true);
-  };
-  const logout = () => {
-      setIsAuthenticated(false);
-  };
-  const handleIsOpen = () => {
-      setisOpenModalVideo(true);
-  }
-  const handleIsClose = () => {
-      setisOpenModalVideo(false);
-  }
-    // Función para traducir **toda la web**
-    const traducirPagina = async (nuevoIdioma) => {
-        try {
-          setIdioma(nuevoIdioma);
-      
-          const elementos = document.querySelectorAll("[data-translate]");
-          const textosOriginales = Array.from(elementos).map((el) => el.innerText);
-      
-          const response = await fetch(
-            `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}`,
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                q: textosOriginales,
-                target: nuevoIdioma,
-                format: "text", // Asegura que la API devuelva solo texto
-              }),
-            }
-          );
-      
-          if (!response.ok) {
-            throw new Error(`Error HTTP: ${response.status}`);
-          }
-      
-          const data = await response.json();
-      
-          if (!data.data || !data.data.translations) {
-            throw new Error("Estructura de respuesta inesperada");
-          }
-      
-          const traducciones = data.data.translations.map((t) => t.translatedText);
-      
-          // Aplicamos la traducción a cada elemento en la web
-          elementos.forEach((el, index) => {
-            el.innerText = traducciones[index];
-          });
-      
-        } catch (error) {
-          console.error("Error al traducir:", error);
-        }
-    };
+  const [userLog, setUserLog] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [nombreUser, setNombreUser] = useState('');
+  const [isOpenModalVideo, setisOpenModalVideo] = useState(false);
+  const [favoritos, setFavoritos] = useState([]);
+  // 🆕 Estado global de favoritos
+    const [favs, setFavs] = useState([]);
 
-    //efecto para el login
-    useEffect(()=>{
-      const userLogin = userData(); 
-      if(userLogin){
-          setUserLog(userLogin);
-          setIsAuthenticated(true);
-          setNombreUser(userLogin.user);
+  // Login / Logout
+  const login = () => setIsAuthenticated(true);
+  const logout = () => setIsAuthenticated(false);
+
+  // Modal video
+  const handleIsOpen = () => setisOpenModalVideo(true);
+  const handleIsClose = () => setisOpenModalVideo(false);
+
+  // Cargar usuario si hay uno guardado
+  useEffect(() => {
+    const userLogin = userData();
+    if (userLogin) {
+      setUserLog(userLogin);
+      setIsAuthenticated(true);
+      setNombreUser(userLogin.user);
+    }
+  }, []);
+
+  // Cargar favoritos desde localStorage al iniciar
+  useEffect(() => {
+    const favs = JSON.parse(localStorage.getItem("favorites")) || [];
+    setFavoritos(favs);
+  }, []);
+
+  // Actualizar localStorage cada vez que cambian los favoritos
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favoritos));
+  }, [favoritos]);
+
+  // Funciones para agregar / quitar favoritos
+  const toggleFavorito = (prop) => {
+    setFavoritos((prev) => {
+      const existe = prev.find((f) => f.id === prop.id);
+      if (existe) {
+        return prev.filter((f) => f.id !== prop.id);
+      } else {
+        return [...prev, prop];
       }
-    }, []);
+    });
+  };
 
-    return (
-      <InmobiliariaContext.Provider
-        value={{
-          idioma,
-          setIdioma,
-          traducirPagina,
-          userLog,
-          setUserLog,
-          isAuthenticated,
-          nombreUser,
-          login,
-          logout,
-          isOpenModalVideo,
-          handleIsOpen,
-          handleIsClose,
-        }}>
-        {children}
-      </InmobiliariaContext.Provider>
-    );
+  return (
+    <InmobiliariaContext.Provider
+      value={{
+        userLog, setUserLog,
+        isAuthenticated,
+        nombreUser,
+        login, logout,
+        isOpenModalVideo,
+        handleIsOpen, handleIsClose,
+        favoritos, setFavoritos, toggleFavorito,
+        favs,
+        setFavs, // ✅ ahora disponible
+      }}
+    >
+      {children}
+    </InmobiliariaContext.Provider>
+  );
 };
 
 export default InmobiliariaProvider;
