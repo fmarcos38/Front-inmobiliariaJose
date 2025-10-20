@@ -8,19 +8,27 @@ const InmobiliariaProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [nombreUser, setNombreUser] = useState('');
   const [isOpenModalVideo, setisOpenModalVideo] = useState(false);
-  const [favoritos, setFavoritos] = useState([]);
-  // 🆕 Estado global de favoritos
-    const [favs, setFavs] = useState([]);
 
-  // Login / Logout
+  // ✅ Inicializa favoritos leyendo directamente de localStorage una sola vez
+  const [favoritos, setFavoritos] = useState(() => {
+    try {
+      const favsGuardados = localStorage.getItem("favorites");
+      return favsGuardados ? JSON.parse(favsGuardados) : [];
+    } catch (error) {
+      console.error("Error al leer favoritos del localStorage:", error);
+      return [];
+    }
+  });
+
+  // 🧠 Login / Logout
   const login = () => setIsAuthenticated(true);
   const logout = () => setIsAuthenticated(false);
 
-  // Modal video
+  // 🎬 Modal video
   const handleIsOpen = () => setisOpenModalVideo(true);
   const handleIsClose = () => setisOpenModalVideo(false);
 
-  // Cargar usuario si hay uno guardado
+  // 🧍‍♂️ Cargar usuario si hay uno guardado
   useEffect(() => {
     const userLogin = userData();
     if (userLogin) {
@@ -30,18 +38,16 @@ const InmobiliariaProvider = ({ children }) => {
     }
   }, []);
 
-  // Cargar favoritos desde localStorage al iniciar
+  // 💾 Guardar favoritos en localStorage cada vez que cambian
   useEffect(() => {
-    const favs = JSON.parse(localStorage.getItem("favorites")) || [];
-    setFavoritos(favs);
-  }, []);
-
-  // Actualizar localStorage cada vez que cambian los favoritos
-  useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favoritos));
+    try {
+      localStorage.setItem("favorites", JSON.stringify(favoritos));
+    } catch (error) {
+      console.error("Error al guardar favoritos en localStorage:", error);
+    }
   }, [favoritos]);
 
-  // Funciones para agregar / quitar favoritos
+  // ❤️ Agregar o quitar favoritos
   const toggleFavorito = (prop) => {
     setFavoritos((prev) => {
       const existe = prev.find((f) => f.id === prop.id);
@@ -62,9 +68,9 @@ const InmobiliariaProvider = ({ children }) => {
         login, logout,
         isOpenModalVideo,
         handleIsOpen, handleIsClose,
-        favoritos, setFavoritos, toggleFavorito,
-        favs,
-        setFavs, // ✅ ahora disponible
+        favoritos,
+        setFavoritos,
+        toggleFavorito,
       }}
     >
       {children}

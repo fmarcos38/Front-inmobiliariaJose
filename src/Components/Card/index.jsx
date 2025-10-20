@@ -118,7 +118,7 @@ function Card({
                             )}
                         </div>
 
-                        {/* ❤️ Botón Favorito */}
+                        {/*Botón Favorito */}
                         <div className="cont-fav" onClick={handleFavoritoClick}>
                             {esFavorito ? (
                                 <FavoriteIcon sx={{ color: 'red', fontSize: 27 }} />
