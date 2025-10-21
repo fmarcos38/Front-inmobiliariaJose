@@ -38,7 +38,7 @@ function DetalleProp() {
         navigate(-1);
     };
 
-    // 🟢 Función para compartir la propiedad
+    // Función para compartir la propiedad
     const handleShare = async () => {
         const url = window.location.href;
         const title = propiedad?.tituloPublicacion || "Propiedad disponible";
@@ -57,7 +57,7 @@ function DetalleProp() {
         }
     };
 
-    // 🟣 Formatear descripción
+    // Formatear descripción
     function formatearDescripcion(texto) {
         if (!texto || typeof texto !== 'string') return '';
         const partes = texto.split(/(?<=[.:])\s*/);
@@ -98,7 +98,6 @@ function DetalleProp() {
                 ) : (
                     <div className='contGralDetalle'>
                         <div className='cont-detail'>
-
                             {/* CABECERA */}
                             <div className='info-1'>
                                 <div className='cont-btn_Y_tituilo-precio'>
@@ -139,7 +138,7 @@ function DetalleProp() {
                                 {/* Dirección y precio */}
                                 <div className='cont-btns-direccion'>
                                     <div className='cont-titulo-icono-direcc'>
-                                        <RoomIcon sx={{ color: 'grey', marginLeft: '40px' }} />
+                                        <RoomIcon sx={{ color: 'white' }} />
                                         <p className='detalle-titulo-direccion'>
                                             {propiedad.direccion}
                                         </p>
