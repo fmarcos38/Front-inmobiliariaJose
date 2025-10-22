@@ -610,6 +610,7 @@
     .cont-btn_Y_tituilo-precio {
         width: 100%;
         height: auto;
+        margin-bottom: 5px;
     }
 
     .cont-btn_Y_tituilo {
@@ -621,9 +622,11 @@
 
     .cont-botones-header-detalle {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         margin: 0;
+        padding: 3px;
     }
 
 
