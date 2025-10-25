@@ -258,16 +258,20 @@ function DetalleProp() {
                             {/* DESCRIPCIÓN */}
                             <div className="cont-texto-descrip-detalle">
                                 <p className='titulo-descrip-prop'>Detalle Propiedad</p>
+                                <div className='linea-titulo-descrip'></div>
                                 <div
                                     className="subCont-texto-descrip-detalle"
                                     dangerouslySetInnerHTML={{ __html: formatearDescripcion(propiedad.descripcion) }}
                                 />
                             </div>
 
+                            {/* Video */}
                             {propiedad?.videos?.length > 0 && (
                                 <div className='cont-map-detalle'>
                                     <p className='p-titulo-mapa'>Video de la propiedad</p>
-                                    <p>{propiedad.videos[0].description}</p>
+                                    <div className='linea-entre-titulos-video'>
+                                        <p className='p-descrip-video'>{propiedad.videos[0].description}</p>
+                                    </div>
 
                                     <div className='cont-mapa-detalle'>
                                         <iframe
@@ -282,8 +286,6 @@ function DetalleProp() {
                                     </div>
                                 </div>
                             )}
-
-
 
                             {/* MAPA */}
                             <div className='cont-map-detalle'>
