@@ -8,16 +8,30 @@
     align-items: center;
 
     /* fondo */
-    background-color: #1a1a1a; /* tono oscuro por si la imagen no carga */
+    /* background-color: #1a1a1a;
     background-image: url('../../Images/Textura-03.jpg');
     background-position: center;
-    background-attachment: fixed; /* opcional: hace que el fondo quede fijo al hacer scroll */
-    opacity: 1;
+    background-attachment: fixed; 
+    opacity: 1; */
+}
+
+/* código para el degrade */
+.contGralDetalle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+    pointer-events: none;
 }
 
 /* div con la info*/
 .cont-detail {
-    width: 80vw;
+    width: 80%;
+    max-width: 1200px;
+    /* no se expande más q esto */
     height: auto;
     display: flex;
     flex-direction: column;
@@ -26,17 +40,7 @@
     margin-top: 80px;
     margin-bottom: 10px;
 }
-/* código para el degrade */
-.cont-detail::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100lvh;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
-    pointer-events: none;
-}
+
 /* estilos seccion titulo y btn atras, video */
 .info-1 {
     width: 100%;
@@ -269,13 +273,15 @@
     border-radius: 20px;
     background-color: grey;
 }
-.titulo-descrip-prop{
+
+.titulo-descrip-prop {
     color: white;
     font-size: 20px;
     margin: 0;
     padding: 10px 0;
 }
-.linea-titulo-descrip{
+
+.linea-titulo-descrip {
     width: 80%;
     border-bottom: solid 1px white;
     margin-bottom: 15px;
@@ -311,6 +317,16 @@
     width: 35%;
 }
 
+/* video */
+.cont-video-detalle {
+    width: 100%;
+    height: 500px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
 /* mapa */
 .cont-map-detalle {
     width: 100%;
@@ -319,8 +335,11 @@
     margin-bottom: 30px;
     border-radius: 5px;
     background-color: #fff;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
     /* sombra derecha e inferior */
+}
+
+.cont-mapa-detalle {
+    height: 400px;
 }
 
 .p-titulo-mapa {
@@ -333,7 +352,7 @@
     color: rgb(4, 4, 4);
 }
 
-.linea-entre-titulos-video{
+.linea-entre-titulos-video {
     width: 100%;
     display: flex;
     justify-content: start;
@@ -341,15 +360,12 @@
     background-color: #444;
 }
 
-.p-descrip-video{
+.p-descrip-video {
     padding: 0 10px;
     color: white;
 }
 
-.cont-mapa-detalle {
-    height: 400px;
-}
-
+/* Lista props similares */
 .cont-lista-props-similares {
     width: 100%;
     display: flex;
@@ -505,10 +521,9 @@
     }
 }
 
-
-
 /* responsive */
 @media screen and (max-width: 1250px) {
+
     .cont-btn_Y_tituilo-precio,
     .cont-btn_Y_tituilo {
         height: auto;
@@ -658,7 +673,6 @@
         padding: 3px;
     }
 
-
     .cont-titulo-detalle {
         width: 99%;
         height: 100%;
@@ -674,6 +688,7 @@
         display: flex;
         justify-content: start;
     }
+
     .cont-precio-detallee {
         width: 50%;
         display: flex;

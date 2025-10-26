@@ -62,29 +62,6 @@ function DetalleProp() {
         }
     };
 
-    // Formatear descripción
-    function formatearDescripcion(texto) {
-        if (!texto || typeof texto !== 'string') return '';
-        const partes = texto.split(/(?<=[.:])\s*/);
-        const resultado = [];
-        let enLista = false;
-
-        for (let parte of partes) {
-            const linea = parte.trim();
-            if (!linea) continue;
-
-            if (linea.endsWith(':')) {
-                resultado.push(`<p>${linea}</p>`);
-                enLista = true;
-            } else if (enLista) {
-                resultado.push(`<p class="p-viñeta">🔸 ${linea}</p>`);
-            } else {
-                resultado.push(`<div>${linea}</div>`);
-            }
-        }
-
-        return resultado.join('');
-    }
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -257,17 +234,17 @@ function DetalleProp() {
 
                             {/* DESCRIPCIÓN */}
                             <div className="cont-texto-descrip-detalle">
-                                <p className='titulo-descrip-prop'>Detalle Propiedad</p>
+                                <p className='titulo-descrip-prop'>Descripción Propiedad</p>
                                 <div className='linea-titulo-descrip'></div>
                                 <div
                                     className="subCont-texto-descrip-detalle"
-                                    dangerouslySetInnerHTML={{ __html: formatearDescripcion(propiedad.descripcion) }}
+                                    dangerouslySetInnerHTML={{ __html: propiedad.descripcion }}
                                 />
                             </div>
 
                             {/* Video */}
                             {propiedad?.videos?.length > 0 && (
-                                <div className='cont-map-detalle'>
+                                <div className='cont-video-detalle'>
                                     <p className='p-titulo-mapa'>Video de la propiedad</p>
                                     <div className='linea-entre-titulos-video'>
                                         <p className='p-descrip-video'>{propiedad.videos[0].description}</p>
