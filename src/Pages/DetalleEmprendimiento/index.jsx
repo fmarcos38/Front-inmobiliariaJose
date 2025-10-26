@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getEmprendimiento, resetEmprendimientos } from '../../Redux/Actions';
 import { InmobiliariaContext } from '../../Context';
-import { capitalizar } from '../../Helps';
 import ReactPlayer from "react-player";
 import Carrusel from '../../Components/Carrusel';
 import MapProp from '../../Components/MapaProp';
