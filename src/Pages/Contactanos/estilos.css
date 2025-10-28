@@ -68,13 +68,9 @@
 }
 
 
-@media screen and (max-width: 600px){
-    .contGralFormulario{
-        height: auto;
-    }
-    .cont-formulario-page {
-        width: 80%;
-        
+@media screen and (max-width: 1000px){
+    .cont-info-ofi-Y-formulario {
+        width: 90%;
     }
 }
 @media screen and (max-width: 550px){
@@ -82,7 +78,7 @@
         width: 95%;
     }
     .cont-info-ofi{
-        width: 100%;
+        width: 90%;
         height: auto;
         display: flex;
         flex-direction: column;
