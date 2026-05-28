@@ -1,12 +1,13 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { LoadScript } from '@react-google-maps/api';
+import { useSelector } from 'react-redux';
 import InmobiliariaProvider  from './Context';
 import Home from './Pages/Home';
 import Navbar from './Components/Navbar';
 import WhatsAppButton from './Components/Botones/BotonWhastApp';
-import PropsVenta from './Pages/PropsVenta';
-import PropsAlquiler from './Pages/PropsAlquiler';
+//import PropsVenta from './Pages/PropsVenta';
+//import PropsAlquiler from './Pages/PropsAlquiler';
 import Emprendimientos from './Pages/Emprendimientos';
 import Contactanos from './Pages/Contactanos';
 import FavoritosPage from './Pages/Favoritos';
@@ -22,26 +23,31 @@ import MapaPAge from './Pages/MapaPage'; */
 import './App.css';
 import Tasaciones from './Components/Tasaciones';
 import PageDestacadas from './Pages/PageDestacadas';
+import PropiedadesPage from './Pages/Propiedades';
 
 
 function App() {
 
   const passGoogle = process.env.REACT_APP_API_GOOGLE_MAP;
+  const isOpenModalPicture = useSelector((state) => state.isOpenModalPicture);
 
   return (
     <LoadScript googleMapsApiKey={passGoogle}> {/* cambié aca por el string */}
       <InmobiliariaProvider>
         <div className="App">
-          <header className="App-header">
-            <Navbar/>
-          </header>
+          {!isOpenModalPicture && (
+            <header className="App-header">
+              <Navbar/>
+            </header>
+          )}
 
           <main className='cont-main'>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path='/ventas' element={<PropsVenta />} />
-              <Route path='/alquiler' element={<PropsAlquiler />} />
+              {/* <Route path='/ventas' element={<PropsVenta />} />
+              <Route path='/alquiler' element={<PropsAlquiler />} /> */}
               <Route path='/emprendimientos' element={<Emprendimientos />} />
+              <Route path='/propiedades' element={<PropiedadesPage/>} /> 
               <Route path='/tasaciones' element={<Tasaciones />} />
               <Route path='/nosotros' element={<LaEmpresaPage />} />
               <Route path='/contacto' element={<Contactanos />} />

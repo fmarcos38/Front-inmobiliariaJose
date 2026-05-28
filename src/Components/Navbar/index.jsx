@@ -1,5 +1,5 @@
 import NavbarA from './NavbarA';
-import NavbarB from './NavbarB';
+//import NavbarB from './NavbarB';
 import NavbarC from './NavbarC';
 import './styles.css';
 
@@ -13,9 +13,9 @@ function Navbar() {
                     <NavbarA />
                 </div>
                 <div className='cont-navbars-byc'>
-                    <div className='cont-navbar-navB'>
+                    {/* <div className='cont-navbar-navB'>
                         <NavbarB />
-                    </div>
+                    </div> */}
                     <div className='cont-navbar-navC'>
                         <NavbarC />
                     </div>

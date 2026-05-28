@@ -3,9 +3,9 @@
     max-width: 1100px;
     padding: 20px;
     border-radius: 16px;
-    background: rgba(255, 255, 255, 0.15);
+    /* background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); */
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -70,9 +70,10 @@
 .titulo-filtros {
     font-size: 1.6rem;
     font-weight: 600;
-    color: #fff;
+    color: var(--fondo-navbar);
     letter-spacing: 1px;
     margin: 0;
+    margin-left: 20px;
 }
 
 /* para vistas Ventas y Alq */
@@ -115,11 +116,13 @@
 
 .select-tipoProp {
     width: 230px;
+    height: 46px;
+    box-sizing: border-box;
     padding: 12px;
     border: none;
-    border-radius: 12px;
+    /* border-radius: 12px; */
     font-size: 16px;
-    background: rgba(255, 255, 255, 0.85);
+    background: var(--fondo-navbar);
     color: #333;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -139,50 +142,44 @@
     align-items: center;
     gap: 10px;
     padding: 5px;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    /* border-radius: 12px; */
+    background: var(--fondo-navbar);
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.cont-filtro-precioMaxMin label {
-    font-size: 14px;
-    font-weight: 600;
-    color: #444;
-}
-
 .input-precioMin {
     width: 110px;
-    padding: 8px 10px;
+    height: 46px;
+    box-sizing: border-box;
+    padding: 8px 8px;
     border-radius: 8px;
     border: 1px solid #ccc;
-    background: #f7f7f7;
+    background: var(--fondo-navbar);
     font-size: 14px;
     transition: border-color 0.3s;
 }
 
-.input-precioMin:focus {
-    border-color: #0077ff;
-    outline: none;
-    background: #fff;
-}
-
 /* botón aplicar */
-.btn-aplicar-precio {
-    background: linear-gradient(135deg, #0077ff, #00bfff);
-    color: white;
+.btn-aplicar-Precio {
+    /* color: var(--fondo-navbar);
+    background-color: rgb(20, 20, 20); */
+    color: rgb(20, 20, 20);
+    background-color: var(--fondo-navbar);
+    height: 46px;
+    box-sizing: border-box;
     border: none;
     padding: 8px 16px;
-    border-radius: 10px;
+    border-top-right-radius: 999px;
+    border-bottom-right-radius: 999px;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 530;
     transition: all 0.3s ease;
 }
 
-.btn-aplicar-precio:hover {
-    background: linear-gradient(135deg, #0056b3, #0088cc);
-    transform: translateY(-2px);
+.btn-aplicar-Precio:hover {
+    background-color: var(--fondo-navbar);
+    color: rgb(20, 20, 20);
 }
 
 /* barrios seleccionados */
@@ -225,6 +222,11 @@
     transform: scale(1.2);
 }
 
+.input-precioMin::placeholder {
+    color: rgba(20, 20, 20, .85);
+    opacity: 1;
+}
+
 /* Responsive */
 
 @media screen and (max-width: 1100px) {
@@ -249,13 +251,75 @@
     }
 }
 
+/* =========================================================
+SOLO DESKTOP: “TODO EN UNA SOLA LÍNEA”
+(Mobile queda igual porque esto corre desde 861px en adelante)
+   ========================================================= */
+@media screen and (min-width: 861px) {
+    .cont-selects-filtros {
+        flex-wrap: nowrap;
+        /* una línea */
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+    }
+
+    .cont-items-noPrecio {
+        width: auto;
+        flex-wrap: nowrap;
+        /* una línea */
+        gap: 10px;
+    }
+
+    .cont-op-tipoP,
+    .cont-tipo-prop,
+    .cont-amb-barrio,
+    .cont-amb {
+        width: auto;
+        /* evita 45% y que rompa línea */
+    }
+
+    .select-tipoProp {
+        width: 220px;
+        /* ajustá a gusto */
+        margin-bottom: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .cont-filtro-precioMaxMin {
+        flex-wrap: nowrap;
+        /* precio + inputs + botón en una línea */
+        white-space: nowrap;
+        gap: 0;
+        box-shadow: none;
+    }
+
+    .input-precioMin {
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .select-tipoProp:hover,
+    .select-tipoProp:focus,
+    .input-precioMin:focus {
+        background: var(--fondo-navbar);
+        transform: none;
+    }
+
+    .btn-aplicar-Precio {
+        font-size: 16px;
+    }
+}
 @media screen and (max-width: 860px) {
+
     .cont-filtrosSelect {
         width: 95%;
         height: auto;
         padding: 12px;
         border-radius: 10px;
-        gap: 10px;
+        gap: 0;
     }
 
     .subCont-filtrosSelect {
@@ -296,29 +360,61 @@
     }
 
     .input-precioMin {
-        width: 110px;
-        padding: 8px 10px;
+        width: calc(95% - 24px);
         font-size: 12px;
+        border: none;
+        border-radius: 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .cont-primario-precio {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .cont-filtro-precioMaxMin {
+        width: 100%;
+        padding: 0;
+        gap: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .cont-filtro-precioMaxMin label {
+        display: none;
+    }
+
+    .btn-aplicar-Precio {
+        margin-top: 10px;
+    }
+
+    .input-precioMin:focus {
+        background: var(--fondo-navbar);
+        border: none;
     }
 }
 
+
 @media screen and (max-width: 425px) {
-    .cont-filtro-precioMaxMin {
-        position: relative;
+    .cont-filtrosSelect {
+        width: 100%;
+        padding: 6px;
     }
 
-    .cont-filtro-precioMaxMin>label {
-        position: absolute;
-        top: -8px;
-        left: 10px;
-        padding: 2px 5px;
-        font-size: 12px;
-        border-radius: 5px;
-        background: rgba(255, 255, 255, 0.85);
+    .cont-selects-filtros {
+        width: 100%;
     }
 
-    .cont-filtro-precioMaxMin>input {
-        margin-top: 10px;
+    .cont-items-noPrecio {
+        gap: 6px;
+    }
+
+    .cont-op-tipoP,
+    .cont-tipo-prop,
+    .cont-amb-barrio,
+    .cont-amb {
+        width: calc(50% - 3px);
     }
 
     .barrio-item>span {
@@ -332,11 +428,37 @@
         /* background-color: var(--fondo-navbar); */
     }
 
-    .cont-filtro-titulo-Venta{
+    .cont-filtro-titulo-Venta {
         height: 30px;
     }
 
-    .titulo-filtros-Venta{
+    .titulo-filtros-Venta {
         color: white;
     }
+
+    .select-tipoProp {
+        width: 100%;
+        height: 40px;
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .input-precioMin {
+        width: calc(100% - 20px);
+        height: 40px;
+        padding: 8px 10px;
+        font-size: 12px;
+        border: none;
+        border-radius: 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-aplicar-Precio {
+        height: 40px;
+        margin-top: 8px;
+        padding: 8px 14px;
+        font-size: 12px;
+    }
 }
+
+

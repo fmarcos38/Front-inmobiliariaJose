@@ -1,14 +1,14 @@
 .contCardHome {
     position: relative;
-    width: 350px;
+    width: 100%;
+    max-width: 380px;
     height: 480px;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    font-family: roboto;
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
-    border-radius: 10px;
     background-color: #fff;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -18,18 +18,16 @@
 .card-image-container {
     position: relative;
     width: 100%;
-    height: 250px;
+    height: 280px;
 }
 
 .card-image {
     width: 100%;
-    height: 250px;
+    height: 280px;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
     position: relative;
 }
 
@@ -75,7 +73,7 @@
 .cont-info-link {
     position: relative;
     width: 100%;
-    height: 230px;
+    height: 200px;
     /* resto de la card */
     display: flex;
     flex-direction: column;
@@ -98,8 +96,6 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
     opacity: 0;
     transition: opacity 0.3s ease;
     background-color: rgba(0, 0, 0, 0.7);
@@ -119,7 +115,7 @@
 /* manejo de info1 */
 .card-info1 {
     width: 95%;
-    height: 150px;
+    height: 128px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -129,7 +125,7 @@
 
 .cont-titulo-publicacion-card {
     width: 100%;
-    height: 80px;
+    height: 70px;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -138,14 +134,14 @@
 
 .cont-titulo-card {
     width: 100%;
-    height: 45px;
+    height: 38px;
     display: flex;
     justify-content: start;
     align-items: center;
 }
 
 .tituloPublicacion {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     text-align: start;
     white-space: nowrap;
@@ -155,21 +151,21 @@
 
 .cont-direcc-icono-card {
     width: 100%;
-    height: 35px;
+    height: 32px;
     display: flex;
     justify-content: start;
     align-items: center;
 }
 
 .direcc-card {
-    font-size: 17px;
-    font-weight: 100;
-    color: rgb(88, 88, 88);
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(35, 35, 35);
 }
 
 .cont-precio-fav {
     width: 100%;
-    height: 45px;
+    height: 40px;
     display: flex;
 }
 
@@ -182,7 +178,7 @@
 }
 
 .precio {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 500;
     color: black;
 }
@@ -216,7 +212,7 @@
 .info2,
 .icono-info-2 {
     margin: 3px;
-    font-size: 15px;
+    font-size: 14px;
     color: var(--color-fuente);
 }
 
@@ -228,7 +224,7 @@
 /* responsive */
 @media screen and (max-width: 600px) {
     .contCardHome {
-        width: 100%;
+        width: 95%;
     }
 
     .precio-card {
